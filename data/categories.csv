@@ -1,0 +1,10 @@
+Id,Name,Parent
+1,Odzież ,NULL
+2,Akcessoria ,NULL
+3,Nadruki ,NULL
+4,Bluzy ,1
+5,Koszulki ,1
+6,Torby ,2
+7,Seriale i filmy,3
+8,Star wars,7
+9,Harry Poter ,7
