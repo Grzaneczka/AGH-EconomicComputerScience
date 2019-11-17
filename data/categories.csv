@@ -1,10 +1,21 @@
 Id,Name,Parent
-1,Odzież ,NULL
-2,Akcessoria ,NULL
-3,Nadruki ,NULL
-4,Bluzy ,1
-5,Koszulki ,1
-6,Torby ,2
-7,Seriale i filmy,3
-8,Star wars,7
-9,Harry Poter ,7
+1,Odzież,NULL
+2,Akcesoria,NULL
+3,Nadruki,NULL
+4,Bluza,1
+5,Koszulka,1
+6,Torba,2
+7,Kubek,2
+8,Czapka,2
+9,Filmy i Seriale,3
+10,Muzyka,3
+11,Symbole,3
+12,Star Wars,9
+13,Harry Potter,9
+14,The Simpsons,9
+15,Iron Maiden,10
+16,Led Zeppelin,10
+17,Queen,10
+18,Czaszka,11
+19,Serce,11
+20,Płatki śniegu,11

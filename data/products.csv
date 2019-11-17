@@ -1,3 +1,500 @@
-Id,Name,Size,Sex,Color,Category,Price,Delivery time
-BStW01WLBl,Bluza z nadrukie Star Wars,XS,WOMEN,Ligth Blue,4;8,120,78
-THaP00UWhi,Torba z nadrukiem z Harry Poter,ONE_SIZE,UNISEX,White,6;9,50,40
+Id,Name,Size,Sex,Color,Category,Delivery time
+BCzK01MGry,Bluza z nadrukiem Czaszka,XS,Man,Grey,4;18,60
+BCzK01WBla,Bluza z nadrukiem Czaszka,XS,Woman,Black,4;18,60
+BCzK01WPin,Bluza z nadrukiem Czaszka,XS,Woman,Pink,4;18,60
+BCzK02MRed,Bluza z nadrukiem Czaszka,S,Man,Red,4;18,57
+BCzK03MBla,Bluza z nadrukiem Czaszka,M,Man,Black,4;18,55
+BCzK03UWhi,Bluza z nadrukiem Czaszka,M,Unisex,White,4;18,57
+BCzK03WLBl,Bluza z nadrukiem Czaszka,M,Woman,Light Blue,4;18,55
+BCzK04UPin,Bluza z nadrukiem Czaszka,L,Unisex,Pink,4;18,59
+BCzK04WWhi,Bluza z nadrukiem Czaszka,L,Woman,White,4;18,57
+BCzK05WLBl,Bluza z nadrukiem Czaszka,XL,Woman,Light Blue,4;18,60
+BHaP00WGry,Bluza z nadrukiem Harry Potter,ONE_SIZE,Woman,Grey,4;13,63
+BHaP00WPin,Bluza z nadrukiem Harry Potter,ONE_SIZE,Woman,Pink,4;13,63
+BHaP02MBlu,Bluza z nadrukiem Harry Potter,S,Man,Blue,4;13,62
+BHaP02UPin,Bluza z nadrukiem Harry Potter,S,Unisex,Pink,4;13,64
+BHaP02WRed,Bluza z nadrukiem Harry Potter,S,Woman,Red,4;13,62
+BHaP03MGrn,Bluza z nadrukiem Harry Potter,M,Man,Green,4;13,60
+BHaP03UGrn,Bluza z nadrukiem Harry Potter,M,Unisex,Green,4;13,62
+BHaP03ULBl,Bluza z nadrukiem Harry Potter,M,Unisex,Light Blue,4;13,62
+BHaP04MGrn,Bluza z nadrukiem Harry Potter,L,Man,Green,4;13,62
+BHaP04UPin,Bluza z nadrukiem Harry Potter,L,Unisex,Pink,4;13,64
+BHaP05MBla,Bluza z nadrukiem Harry Potter,XL,Man,Black,4;13,65
+BHaP05URed,Bluza z nadrukiem Harry Potter,XL,Unisex,Red,4;13,67
+BIrM00ULBl,Bluza z nadrukiem Iron Maiden,ONE_SIZE,Unisex,Light Blue,4;15,65
+BIrM01MRed,Bluza z nadrukiem Iron Maiden,XS,Man,Red,4;15,65
+BIrM01WGry,Bluza z nadrukiem Iron Maiden,XS,Woman,Grey,4;15,65
+BIrM01WLBl,Bluza z nadrukiem Iron Maiden,XS,Woman,Light Blue,4;15,65
+BIrM02UBlu,Bluza z nadrukiem Iron Maiden,S,Unisex,Blue,4;15,64
+BIrM03MPin,Bluza z nadrukiem Iron Maiden,M,Man,Pink,4;15,60
+BIrM04MBlu,Bluza z nadrukiem Iron Maiden,L,Man,Blue,4;15,62
+BLeZ00MBla,Bluza z nadrukiem Led Zeppelin,ONE_SIZE,Man,Black,4;16,64
+BLeZ01MRed,Bluza z nadrukiem Led Zeppelin,XS,Man,Red,4;16,66
+BLeZ01MWhi,Bluza z nadrukiem Led Zeppelin,XS,Man,White,4;16,66
+BLeZ01UGrn,Bluza z nadrukiem Led Zeppelin,XS,Unisex,Green,4;16,68
+BLeZ01WGrn,Bluza z nadrukiem Led Zeppelin,XS,Woman,Green,4;16,66
+BLeZ02MLBl,Bluza z nadrukiem Led Zeppelin,S,Man,Light Blue,4;16,63
+BLeZ02MPin,Bluza z nadrukiem Led Zeppelin,S,Man,Pink,4;16,63
+BLeZ03UBla,Bluza z nadrukiem Led Zeppelin,M,Unisex,Black,4;16,63
+BLeZ03UBlu,Bluza z nadrukiem Led Zeppelin,M,Unisex,Blue,4;16,63
+BLeZ03URed,Bluza z nadrukiem Led Zeppelin,M,Unisex,Red,4;16,63
+BLeZ04MBlu,Bluza z nadrukiem Led Zeppelin,L,Man,Blue,4;16,63
+BLeZ04MGrn,Bluza z nadrukiem Led Zeppelin,L,Man,Green,4;16,63
+BLeZ05URed,Bluza z nadrukiem Led Zeppelin,XL,Unisex,Red,4;16,68
+BLeZ05WLBl,Bluza z nadrukiem Led Zeppelin,XL,Woman,Light Blue,4;16,66
+BPlS01ULBl,Bluza z nadrukiem Płatki śniegu,XS,Unisex,Light Blue,4;20,64
+BPlS01WLBl,Bluza z nadrukiem Płatki śniegu,XS,Woman,Light Blue,4;20,62
+BPlS03MBla,Bluza z nadrukiem Płatki śniegu,M,Man,Black,4;20,57
+BPlS03MWhi,Bluza z nadrukiem Płatki śniegu,M,Man,White,4;20,57
+BPlS04MGry,Bluza z nadrukiem Płatki śniegu,L,Man,Grey,4;20,59
+BPlS04UGrn,Bluza z nadrukiem Płatki śniegu,L,Unisex,Green,4;20,61
+BPlS04WRed,Bluza z nadrukiem Płatki śniegu,L,Woman,Red,4;20,59
+BPlS05UBla,Bluza z nadrukiem Płatki śniegu,XL,Unisex,Black,4;20,64
+BPlS05WWhi,Bluza z nadrukiem Płatki śniegu,XL,Woman,White,4;20,62
+BQeN00MGrn,Bluza z nadrukiem Queen,ONE_SIZE,Man,Green,4;17,65
+BQeN00WPin,Bluza z nadrukiem Queen,ONE_SIZE,Woman,Pink,4;17,65
+BQeN01MGry,Bluza z nadrukiem Queen,XS,Man,Grey,4;17,67
+BQeN01UPin,Bluza z nadrukiem Queen,XS,Unisex,Pink,4;17,69
+BQeN02UGry,Bluza z nadrukiem Queen,S,Unisex,Grey,4;17,66
+BQeN02UWhi,Bluza z nadrukiem Queen,S,Unisex,White,4;17,66
+BQeN02WBlu,Bluza z nadrukiem Queen,S,Woman,Blue,4;17,64
+BQeN03MLBl,Bluza z nadrukiem Queen,M,Man,Light Blue,4;17,62
+BQeN03WGrn,Bluza z nadrukiem Queen,M,Woman,Green,4;17,62
+BQeN04MBlu,Bluza z nadrukiem Queen,L,Man,Blue,4;17,64
+BQeN04MPin,Bluza z nadrukiem Queen,L,Man,Pink,4;17,64
+BQeN04UBla,Bluza z nadrukiem Queen,L,Unisex,Black,4;17,66
+BQeN05MBlu,Bluza z nadrukiem Queen,XL,Man,Blue,4;17,67
+BQeN05UGrn,Bluza z nadrukiem Queen,XL,Unisex,Green,4;17,69
+BQeN05UGry,Bluza z nadrukiem Queen,XL,Unisex,Grey,4;17,69
+BQeN05UPin,Bluza z nadrukiem Queen,XL,Unisex,Pink,4;17,69
+BQeN05WRed,Bluza z nadrukiem Queen,XL,Woman,Red,4;17,67
+BQeN05WWhi,Bluza z nadrukiem Queen,XL,Woman,White,4;17,67
+BSeC00UBlu,Bluza z nadrukiem Serce,ONE_SIZE,Unisex,Blue,4;19,61
+BSeC00WPin,Bluza z nadrukiem Serce,ONE_SIZE,Woman,Pink,4;19,59
+BSeC01ULBl,Bluza z nadrukiem Serce,XS,Unisex,Light Blue,4;19,63
+BSeC01WBla,Bluza z nadrukiem Serce,XS,Woman,Black,4;19,61
+BSeC02MGrn,Bluza z nadrukiem Serce,S,Man,Green,4;19,58
+BSeC02UWhi,Bluza z nadrukiem Serce,S,Unisex,White,4;19,60
+BSeC02WBla,Bluza z nadrukiem Serce,S,Woman,Black,4;19,58
+BSeC03UBla,Bluza z nadrukiem Serce,M,Unisex,Black,4;19,58
+BSeC03WGry,Bluza z nadrukiem Serce,M,Woman,Grey,4;19,56
+BSeC04MGrn,Bluza z nadrukiem Serce,L,Man,Green,4;19,58
+BSeC04ULBl,Bluza z nadrukiem Serce,L,Unisex,Light Blue,4;19,60
+BSeC05MBlu,Bluza z nadrukiem Serce,XL,Man,Blue,4;19,61
+BSeC05WLBl,Bluza z nadrukiem Serce,XL,Woman,Light Blue,4;19,61
+BStW00UBla,Bluza z nadrukiem Star Wars,ONE_SIZE,Unisex,Black,4;12,67
+BStW00UBlu,Bluza z nadrukiem Star Wars,ONE_SIZE,Unisex,Blue,4;12,67
+BStW00ULBl,Bluza z nadrukiem Star Wars,ONE_SIZE,Unisex,Light Blue,4;12,67
+BStW00UWhi,Bluza z nadrukiem Star Wars,ONE_SIZE,Unisex,White,4;12,67
+BStW00WBla,Bluza z nadrukiem Star Wars,ONE_SIZE,Woman,Black,4;12,65
+BStW00WWhi,Bluza z nadrukiem Star Wars,ONE_SIZE,Woman,White,4;12,65
+BStW01WGry,Bluza z nadrukiem Star Wars,XS,Woman,Grey,4;12,67
+BStW02MPin,Bluza z nadrukiem Star Wars,S,Man,Pink,4;12,64
+BStW02ULBl,Bluza z nadrukiem Star Wars,S,Unisex,Light Blue,4;12,66
+BStW02WRed,Bluza z nadrukiem Star Wars,S,Woman,Red,4;12,64
+BStW02WWhi,Bluza z nadrukiem Star Wars,S,Woman,White,4;12,64
+BStW03WBlu,Bluza z nadrukiem Star Wars,M,Woman,Blue,4;12,62
+BStW03WWhi,Bluza z nadrukiem Star Wars,M,Woman,White,4;12,62
+BStW04UBla,Bluza z nadrukiem Star Wars,L,Unisex,Black,4;12,66
+BStW04ULBl,Bluza z nadrukiem Star Wars,L,Unisex,Light Blue,4;12,66
+BStW04UGry,Bluza z nadrukiem Star Wars,L,Unisex,Grey,4;12,66
+BStW04WBlu,Bluza z nadrukiem Star Wars,L,Woman,Blue,4;12,64
+BStW05MBla,Bluza z nadrukiem Star Wars,XL,Man,Black,4;12,67
+BStW05WBlu,Bluza z nadrukiem Star Wars,XL,Woman,Blue,4;12,67
+BStW05WRed,Bluza z nadrukiem Star Wars,XL,Woman,Red,4;12,67
+BThS00MLBl,Bluza z nadrukiem The Simpsons,ONE_SIZE,Man,Light Blue,4;14,61
+BThS00WLBl,Bluza z nadrukiem The Simpsons,ONE_SIZE,Woman,Light Blue,4;14,61
+BThS02UBlu,Bluza z nadrukiem The Simpsons,S,Unisex,Blue,4;14,62
+BThS02WLBl,Bluza z nadrukiem The Simpsons,S,Woman,Light Blue,4;14,60
+BThS03MBla,Bluza z nadrukiem The Simpsons,M,Man,Black,4;14,58
+BThS03MBlu,Bluza z nadrukiem The Simpsons,M,Man,Blue,4;14,58
+BThS03MWhi,Bluza z nadrukiem The Simpsons,M,Man,White,4;14,58
+BThS03URed,Bluza z nadrukiem The Simpsons,M,Unisex,Red,4;14,60
+BThS03WLBl,Bluza z nadrukiem The Simpsons,M,Woman,Light Blue,4;14,58
+BThS04UGry,Bluza z nadrukiem The Simpsons,L,Unisex,Grey,4;14,62
+BThS04WBla,Bluza z nadrukiem The Simpsons,L,Woman,Black,4;14,60
+CCzK00UBlu,Czapka z nadrukiem Czaszka,ONE_SIZE,Unisex,Blue,8;18,45
+CCzK00UGry,Czapka z nadrukiem Czaszka,ONE_SIZE,Unisex,Grey,8;18,45
+CCzK02WGry,Czapka z nadrukiem Czaszka,S,Woman,Grey,8;18,42
+CCzK03URed,Czapka z nadrukiem Czaszka,M,Unisex,Red,8;18,42
+CCzK03WLBl,Czapka z nadrukiem Czaszka,M,Woman,Light Blue,8;18,40
+CCzK05ULBl,Czapka z nadrukiem Czaszka,XL,Unisex,Light Blue,8;18,47
+CCzK05WPin,Czapka z nadrukiem Czaszka,XL,Woman,Pink,8;18,45
+CHaP01MWhi,Czapka z nadrukiem Harry Potter,XS,Man,White,8;13,50
+CHaP02MBlu,Czapka z nadrukiem Harry Potter,S,Man,Blue,8;13,47
+CHaP03MBla,Czapka z nadrukiem Harry Potter,M,Man,Black,8;13,45
+CHaP03MGrn,Czapka z nadrukiem Harry Potter,M,Man,Green,8;13,45
+CHaP03UWhi,Czapka z nadrukiem Harry Potter,M,Unisex,White,8;13,47
+CHaP04UBla,Czapka z nadrukiem Harry Potter,L,Unisex,Black,8;13,49
+CHaP04UGry,Czapka z nadrukiem Harry Potter,L,Unisex,Grey,8;13,49
+CHaP04ULBl,Czapka z nadrukiem Harry Potter,L,Unisex,Light Blue,8;13,49
+CHaP05WGrn,Czapka z nadrukiem Harry Potter,XL,Woman,Green,8;13,50
+CHaP05WPin,Czapka z nadrukiem Harry Potter,XL,Woman,Pink,8;13,50
+CIrM00WRed,Czapka z nadrukiem Iron Maiden,ONE_SIZE,Woman,Red,8;15,48
+CIrM01UGrn,Czapka z nadrukiem Iron Maiden,XS,Unisex,Green,8;15,52
+CIrM01WPin,Czapka z nadrukiem Iron Maiden,XS,Woman,Pink,8;15,50
+CIrM02MLBl,Czapka z nadrukiem Iron Maiden,S,Man,Light Blue,8;15,47
+CIrM03URed,Czapka z nadrukiem Iron Maiden,M,Unisex,Red,8;15,47
+CIrM05WPin,Czapka z nadrukiem Iron Maiden,XL,Woman,Pink,8;15,50
+CLeZ00MBla,Czapka z nadrukiem Led Zeppelin,ONE_SIZE,Man,Black,8;16,49
+CLeZ00MBlu,Czapka z nadrukiem Led Zeppelin,ONE_SIZE,Man,Blue,8;16,49
+CLeZ01WPin,Czapka z nadrukiem Led Zeppelin,XS,Woman,Pink,8;16,51
+CLeZ02WWhi,Czapka z nadrukiem Led Zeppelin,S,Woman,White,8;16,48
+CLeZ03MWhi,Czapka z nadrukiem Led Zeppelin,M,Man,White,8;16,46
+CLeZ03UGrn,Czapka z nadrukiem Led Zeppelin,M,Unisex,Green,8;16,48
+CLeZ04MWhi,Czapka z nadrukiem Led Zeppelin,L,Man,White,8;16,48
+CLeZ04UGrn,Czapka z nadrukiem Led Zeppelin,L,Unisex,Green,8;16,50
+CLeZ04WGry,Czapka z nadrukiem Led Zeppelin,L,Woman,Grey,8;16,48
+CLeZ05UBlu,Czapka z nadrukiem Led Zeppelin,XL,Unisex,Blue,8;16,53
+CPlS00UBlu,Czapka z nadrukiem Płatki śniegu,ONE_SIZE,Unisex,Blue,8;20,47
+CPlS00ULBl,Czapka z nadrukiem Płatki śniegu,ONE_SIZE,Unisex,Light Blue,8;20,47
+CPlS02MBlu,Czapka z nadrukiem Płatki śniegu,S,Man,Blue,8;20,44
+CPlS02MGrn,Czapka z nadrukiem Płatki śniegu,S,Man,Green,8;20,44
+CPlS02ULBl,Czapka z nadrukiem Płatki śniegu,S,Unisex,Light Blue,8;20,46
+CPlS03MLBl,Czapka z nadrukiem Płatki śniegu,M,Man,Light Blue,8;20,42
+CPlS03ULBl,Czapka z nadrukiem Płatki śniegu,M,Unisex,Light Blue,8;20,44
+CPlS03WWhi,Czapka z nadrukiem Płatki śniegu,M,Woman,White,8;20,42
+CPlS04MPin,Czapka z nadrukiem Płatki śniegu,L,Man,Pink,8;20,44
+CPlS04MBlu,Czapka z nadrukiem Płatki śniegu,L,Man,Blue,8;20,44
+CPlS04URed,Czapka z nadrukiem Płatki śniegu,L,Unisex,Red,8;20,46
+CPlS05UGrn,Czapka z nadrukiem Płatki śniegu,XL,Unisex,Green,8;20,49
+CQeN00MGry,Czapka z nadrukiem Queen,ONE_SIZE,Man,Grey,8;17,50
+CQeN00UBlu,Czapka z nadrukiem Queen,ONE_SIZE,Unisex,Blue,8;17,52
+CQeN00UPin,Czapka z nadrukiem Queen,ONE_SIZE,Unisex,Pink,8;17,52
+CQeN00WBla,Czapka z nadrukiem Queen,ONE_SIZE,Woman,Black,8;17,50
+CQeN01UWhi,Czapka z nadrukiem Queen,XS,Unisex,White,8;17,54
+CQeN01WGry,Czapka z nadrukiem Queen,XS,Woman,Grey,8;17,52
+CQeN02MBlu,Czapka z nadrukiem Queen,S,Man,Blue,8;17,49
+CQeN02MWhi,Czapka z nadrukiem Queen,S,Man,White,8;17,49
+CQeN02UPin,Czapka z nadrukiem Queen,S,Unisex,Pink,8;17,51
+CQeN02URed,Czapka z nadrukiem Queen,S,Unisex,Red,8;17,51
+CQeN03UGry,Czapka z nadrukiem Queen,M,Unisex,Grey,8;17,49
+CQeN03WPin,Czapka z nadrukiem Queen,M,Woman,Pink,8;17,47
+CQeN05MGrn,Czapka z nadrukiem Queen,XL,Man,Green,8;17,52
+CQeN05MGry,Czapka z nadrukiem Queen,XL,Man,Grey,8;17,52
+CQeN05MLBl,Czapka z nadrukiem Queen,XL,Man,Light Blue,8;17,52
+CSeC00ULBl,Czapka z nadrukiem Serce,ONE_SIZE,Unisex,Light Blue,8;19,46
+CSeC00WGry,Czapka z nadrukiem Serce,ONE_SIZE,Woman,Grey,8;19,44
+CSeC00WPin,Czapka z nadrukiem Serce,ONE_SIZE,Woman,Pink,8;19,44
+CSeC01ULBl,Czapka z nadrukiem Serce,XS,Unisex,Light Blue,8;19,48
+CSeC01UWhi,Czapka z nadrukiem Serce,XS,Unisex,White,8;19,48
+CSeC01WBla,Czapka z nadrukiem Serce,XS,Woman,Black,8;19,46
+CSeC02MGrn,Czapka z nadrukiem Serce,S,Man,Green,8;19,43
+CSeC02MGry,Czapka z nadrukiem Serce,S,Man,Grey,8;19,43
+CSeC03URed,Czapka z nadrukiem Serce,M,Unisex,Red,8;19,43
+CSeC04WRed,Czapka z nadrukiem Serce,L,Woman,Red,8;19,43
+CSeC05MWhi,Czapka z nadrukiem Serce,XL,Man,White,8;19,46
+CStW01WBlu,Czapka z nadrukiem Star Wars,XS,Woman,Blue,8;12,52
+CStW02URed,Czapka z nadrukiem Star Wars,S,Unisex,Red,8;12,51
+CStW04MGrn,Czapka z nadrukiem Star Wars,L,Man,Green,8;12,49
+CStW04UPin,Czapka z nadrukiem Star Wars,L,Unisex,Pink,8;12,51
+CStW05UBla,Czapka z nadrukiem Star Wars,XL,Unisex,Black,8;12,54
+CThS00UBlu,Czapka z nadrukiem The Simpsons,ONE_SIZE,Unisex,Blue,8;14,48
+CThS00UGry,Czapka z nadrukiem The Simpsons,ONE_SIZE,Unisex,Grey,8;14,48
+CThS01MGry,Czapka z nadrukiem The Simpsons,XS,Man,Grey,8;14,48
+CThS01UGrn,Czapka z nadrukiem The Simpsons,XS,Unisex,Green,8;14,50
+CThS02MLBl,Czapka z nadrukiem The Simpsons,S,Man,Light Blue,8;14,45
+CThS02UGrn,Czapka z nadrukiem The Simpsons,S,Unisex,Green,8;14,47
+CThS03MGry,Czapka z nadrukiem The Simpsons,M,Man,Grey,8;14,43
+CThS03MLBl,Czapka z nadrukiem The Simpsons,M,Man,Light Blue,8;14,43
+CThS03MRed,Czapka z nadrukiem The Simpsons,M,Man,Red,8;14,43
+CThS04UGrn,Czapka z nadrukiem The Simpsons,L,Unisex,Green,8;14,47
+KCzK00MBla,Koszulka z nadrukiem Czaszka,ONE_SIZE,Man,Black,5;18,53
+KCzK01MWhi,Koszulka z nadrukiem Czaszka,XS,Man,White,5;18,55
+KCzK02MRed,Koszulka z nadrukiem Czaszka,S,Man,Red,5;18,52
+KCzK04MBlu,Koszulka z nadrukiem Czaszka,L,Man,Blue,5;18,52
+KCzK04MGry,Koszulka z nadrukiem Czaszka,L,Man,Grey,5;18,52
+KCzK05UGry,Koszulka z nadrukiem Czaszka,XL,Unisex,Grey,5;18,57
+KCzK05UPin,Koszulka z nadrukiem Czaszka,XL,Unisex,Pink,5;18,57
+KCzK05WRed,Koszulka z nadrukiem Czaszka,XL,Woman,Red,5;18,55
+KHaP00UBla,Koszulka z nadrukiem Harry Potter,ONE_SIZE,Unisex,Black,5;13,60
+KHaP00UGrn,Koszulka z nadrukiem Harry Potter,ONE_SIZE,Unisex,Green,5;13,60
+KHaP00UWhi,Koszulka z nadrukiem Harry Potter,ONE_SIZE,Unisex,White,5;13,60
+KHaP01WBlu,Koszulka z nadrukiem Harry Potter,XS,Woman,Blue,5;13,60
+KHaP01WRed,Koszulka z nadrukiem Harry Potter,XS,Woman,Red,5;13,60
+KHaP02WRed,Koszulka z nadrukiem Harry Potter,S,Woman,Red,5;13,57
+KHaP03UWhi,Koszulka z nadrukiem Harry Potter,M,Unisex,White,5;13,57
+KHaP04UBla,Koszulka z nadrukiem Harry Potter,L,Unisex,Black,5;13,59
+KHaP05MPin,Koszulka z nadrukiem Harry Potter,XL,Man,Pink,5;13,60
+KHaP05WGry,Koszulka z nadrukiem Harry Potter,XL,Woman,Grey,5;13,60
+KHaP05WRed,Koszulka z nadrukiem Harry Potter,XL,Woman,Red,5;13,60
+KIrM00UBla,Koszulka z nadrukiem Iron Maiden,ONE_SIZE,Unisex,Black,5;15,60
+KIrM01WBla,Koszulka z nadrukiem Iron Maiden,XS,Woman,Black,5;15,60
+KIrM01WLBl,Koszulka z nadrukiem Iron Maiden,XS,Woman,Light Blue,5;15,60
+KIrM01WPin,Koszulka z nadrukiem Iron Maiden,XS,Woman,Pink,5;15,60
+KIrM02MBla,Koszulka z nadrukiem Iron Maiden,S,Man,Black,5;15,57
+KIrM02WBla,Koszulka z nadrukiem Iron Maiden,S,Woman,Black,5;15,57
+KIrM02WBlu,Koszulka z nadrukiem Iron Maiden,S,Woman,Blue,5;15,57
+KIrM02WGry,Koszulka z nadrukiem Iron Maiden,S,Woman,Grey,5;15,57
+KIrM03UBla,Koszulka z nadrukiem Iron Maiden,M,Unisex,Black,5;15,57
+KIrM03UGry,Koszulka z nadrukiem Iron Maiden,M,Unisex,Grey,5;15,57
+KIrM03WBlu,Koszulka z nadrukiem Iron Maiden,M,Woman,Blue,5;15,55
+KLeZ00MLBl,Koszulka z nadrukiem Led Zeppelin,ONE_SIZE,Man,Light Blue,5;16,59
+KLeZ00UBlu,Koszulka z nadrukiem Led Zeppelin,ONE_SIZE,Unisex,Blue,5;16,61
+KLeZ01MBlu,Koszulka z nadrukiem Led Zeppelin,XS,Man,Blue,5;16,61
+KLeZ01WRed,Koszulka z nadrukiem Led Zeppelin,XS,Woman,Red,5;16,61
+KLeZ02MGrn,Koszulka z nadrukiem Led Zeppelin,S,Man,Green,5;16,58
+KLeZ04MRed,Koszulka z nadrukiem Led Zeppelin,L,Man,Red,5;16,58
+KLeZ05UBla,Koszulka z nadrukiem Led Zeppelin,XL,Unisex,Black,5;16,63
+KLeZ05UGrn,Koszulka z nadrukiem Led Zeppelin,XL,Unisex,Green,5;16,63
+KLeZ05URed,Koszulka z nadrukiem Led Zeppelin,XL,Unisex,Red,5;16,63
+KLeZ05WPin,Koszulka z nadrukiem Led Zeppelin,XL,Woman,Pink,5;16,61
+KPlS01UBlu,Koszulka z nadrukiem Płatki śniegu,XS,Unisex,Blue,5;20,59
+KPlS01WGrn,Koszulka z nadrukiem Płatki śniegu,XS,Woman,Green,5;20,57
+KPlS02UBla,Koszulka z nadrukiem Płatki śniegu,S,Unisex,Black,5;20,56
+KPlS02UGry,Koszulka z nadrukiem Płatki śniegu,S,Unisex,Grey,5;20,56
+KPlS02UWhi,Koszulka z nadrukiem Płatki śniegu,S,Unisex,White,5;20,56
+KPlS02WBlu,Koszulka z nadrukiem Płatki śniegu,S,Woman,Blue,5;20,54
+KPlS03WGry,Koszulka z nadrukiem Płatki śniegu,M,Woman,Grey,5;20,52
+KPlS04MLBl,Koszulka z nadrukiem Płatki śniegu,L,Man,Light Blue,5;20,54
+KPlS04WPin,Koszulka z nadrukiem Płatki śniegu,L,Woman,Pink,5;20,54
+KQeN00UGrn,Koszulka z nadrukiem Queen,ONE_SIZE,Unisex,Green,5;17,62
+KQeN00ULBl,Koszulka z nadrukiem Queen,ONE_SIZE,Unisex,Light Blue,5;17,62
+KQeN01WBlu,Koszulka z nadrukiem Queen,XS,Woman,Blue,5;17,62
+KQeN02UGrn,Koszulka z nadrukiem Queen,S,Unisex,Green,5;17,61
+KQeN02ULBl,Koszulka z nadrukiem Queen,S,Unisex,Light Blue,5;17,61
+KQeN02UWhi,Koszulka z nadrukiem Queen,S,Unisex,White,5;17,61
+KQeN02WRed,Koszulka z nadrukiem Queen,S,Woman,Red,5;17,59
+KQeN04MBla,Koszulka z nadrukiem Queen,L,Man,Black,5;17,59
+KQeN04UBla,Koszulka z nadrukiem Queen,L,Unisex,Black,5;17,61
+KQeN04UGrn,Koszulka z nadrukiem Queen,L,Unisex,Green,5;17,61
+KQeN04UGry,Koszulka z nadrukiem Queen,L,Unisex,Grey,5;17,61
+KQeN04WLBl,Koszulka z nadrukiem Queen,L,Woman,Light Blue,5;17,59
+KQeN04WWhi,Koszulka z nadrukiem Queen,L,Woman,White,5;17,59
+KSeC00MWhi,Koszulka z nadrukiem Serce,ONE_SIZE,Man,White,5;19,54
+KSeC00WBlu,Koszulka z nadrukiem Serce,ONE_SIZE,Woman,Blue,5;19,54
+KSeC01UBlu,Koszulka z nadrukiem Serce,XS,Unisex,Blue,5;19,58
+KSeC01UGry,Koszulka z nadrukiem Serce,XS,Unisex,Grey,5;19,58
+KSeC01WGry,Koszulka z nadrukiem Serce,XS,Woman,Grey,5;19,56
+KSeC02WGrn,Koszulka z nadrukiem Serce,S,Woman,Green,5;19,53
+KSeC04UBlu,Koszulka z nadrukiem Serce,L,Unisex,Blue,5;19,55
+KSeC04UGrn,Koszulka z nadrukiem Serce,L,Unisex,Green,5;19,55
+KSeC05MLBl,Koszulka z nadrukiem Serce,XL,Man,Light Blue,5;19,56
+KSeC05MWhi,Koszulka z nadrukiem Serce,XL,Man,White,5;19,56
+KStW00UBlu,Koszulka z nadrukiem Star Wars,ONE_SIZE,Unisex,Blue,5;12,62
+KStW00UGrn,Koszulka z nadrukiem Star Wars,ONE_SIZE,Unisex,Green,5;12,62
+KStW00ULBl,Koszulka z nadrukiem Star Wars,ONE_SIZE,Unisex,Light Blue,5;12,62
+KStW01MGrn,Koszulka z nadrukiem Star Wars,XS,Man,Green,5;12,62
+KStW02MGrn,Koszulka z nadrukiem Star Wars,S,Man,Green,5;12,59
+KStW03MWhi,Koszulka z nadrukiem Star Wars,M,Man,White,5;12,57
+KStW03WBlu,Koszulka z nadrukiem Star Wars,M,Woman,Blue,5;12,57
+KStW04MBlu,Koszulka z nadrukiem Star Wars,L,Man,Blue,5;12,59
+KStW04UGrn,Koszulka z nadrukiem Star Wars,L,Unisex,Green,5;12,61
+KStW05MBlu,Koszulka z nadrukiem Star Wars,XL,Man,Blue,5;12,62
+KStW05UGry,Koszulka z nadrukiem Star Wars,XL,Unisex,Grey,5;12,64
+KThS00UGrn,Koszulka z nadrukiem The Simpsons,ONE_SIZE,Unisex,Green,5;14,58
+KThS00URed,Koszulka z nadrukiem The Simpsons,ONE_SIZE,Unisex,Red,5;14,58
+KThS02MGry,Koszulka z nadrukiem The Simpsons,S,Man,Grey,5;14,55
+KThS02WPin,Koszulka z nadrukiem The Simpsons,S,Woman,Pink,5;14,55
+KThS02WWhi,Koszulka z nadrukiem The Simpsons,S,Woman,White,5;14,55
+KThS03MRed,Koszulka z nadrukiem The Simpsons,M,Man,Red,5;14,53
+KThS03UBlu,Koszulka z nadrukiem The Simpsons,M,Unisex,Blue,5;14,55
+KThS03ULBl,Koszulka z nadrukiem The Simpsons,M,Unisex,Light Blue,5;14,55
+KThS03WRed,Koszulka z nadrukiem The Simpsons,M,Woman,Red,5;14,53
+KThS04MBla,Koszulka z nadrukiem The Simpsons,L,Man,Black,5;14,55
+KThS04UGry,Koszulka z nadrukiem The Simpsons,L,Unisex,Grey,5;14,57
+KThS04UPin,Koszulka z nadrukiem The Simpsons,L,Unisex,Pink,5;14,57
+KThS04WRed,Koszulka z nadrukiem The Simpsons,L,Woman,Red,5;14,55
+KThS05MLBl,Koszulka z nadrukiem The Simpsons,XL,Man,Light Blue,5;14,58
+QCzK00MPin,Kubek z nadrukiem Czaszka,ONE_SIZE,Man,Pink,7;18,38
+QCzK01UPin,Kubek z nadrukiem Czaszka,XS,Unisex,Pink,7;18,42
+QCzK01WGrn,Kubek z nadrukiem Czaszka,XS,Woman,Green,7;18,40
+QCzK02WRed,Kubek z nadrukiem Czaszka,S,Woman,Red,7;18,37
+QCzK03WBlu,Kubek z nadrukiem Czaszka,M,Woman,Blue,7;18,35
+QCzK03WRed,Kubek z nadrukiem Czaszka,M,Woman,Red,7;18,35
+QCzK04ULBl,Kubek z nadrukiem Czaszka,L,Unisex,Light Blue,7;18,39
+QCzK05UPin,Kubek z nadrukiem Czaszka,XL,Unisex,Pink,7;18,42
+QCzK05WPin,Kubek z nadrukiem Czaszka,XL,Woman,Pink,7;18,40
+QHaP00MBla,Kubek z nadrukiem Harry Potter,ONE_SIZE,Man,Black,7;13,43
+QHaP00WBlu,Kubek z nadrukiem Harry Potter,ONE_SIZE,Woman,Blue,7;13,43
+QHaP00WWhi,Kubek z nadrukiem Harry Potter,ONE_SIZE,Woman,White,7;13,43
+QHaP01MRed,Kubek z nadrukiem Harry Potter,XS,Man,Red,7;13,45
+QHaP02MGrn,Kubek z nadrukiem Harry Potter,S,Man,Green,7;13,42
+QHaP03MGry,Kubek z nadrukiem Harry Potter,M,Man,Grey,7;13,40
+QHaP04UBlu,Kubek z nadrukiem Harry Potter,L,Unisex,Blue,7;13,44
+QHaP04ULBl,Kubek z nadrukiem Harry Potter,L,Unisex,Light Blue,7;13,44
+QHaP04WGrn,Kubek z nadrukiem Harry Potter,L,Woman,Green,7;13,42
+QHaP05UBla,Kubek z nadrukiem Harry Potter,XL,Unisex,Black,7;13,47
+QIrM02ULBl,Kubek z nadrukiem Iron Maiden,S,Unisex,Light Blue,7;15,44
+QIrM02WWhi,Kubek z nadrukiem Iron Maiden,S,Woman,White,7;15,42
+QIrM03MGrn,Kubek z nadrukiem Iron Maiden,M,Man,Green,7;15,40
+QIrM03WWhi,Kubek z nadrukiem Iron Maiden,M,Woman,White,7;15,40
+QIrM04UBlu,Kubek z nadrukiem Iron Maiden,L,Unisex,Blue,7;15,44
+QIrM04UWhi,Kubek z nadrukiem Iron Maiden,L,Unisex,White,7;15,44
+QIrM04WBla,Kubek z nadrukiem Iron Maiden,L,Woman,Black,7;15,42
+QIrM04WRed,Kubek z nadrukiem Iron Maiden,L,Woman,Red,7;15,42
+QLeZ00WRed,Kubek z nadrukiem Led Zeppelin,ONE_SIZE,Woman,Red,7;16,44
+QLeZ01WRed,Kubek z nadrukiem Led Zeppelin,XS,Woman,Red,7;16,46
+QLeZ02MPin,Kubek z nadrukiem Led Zeppelin,S,Man,Pink,7;16,43
+QPlS00MRed,Kubek z nadrukiem Płatki śniegu,ONE_SIZE,Man,Red,7;20,40
+QPlS00WBla,Kubek z nadrukiem Płatki śniegu,ONE_SIZE,Woman,Black,7;20,40
+QPlS00WPin,Kubek z nadrukiem Płatki śniegu,ONE_SIZE,Woman,Pink,7;20,40
+QPlS00WWhi,Kubek z nadrukiem Płatki śniegu,ONE_SIZE,Woman,White,7;20,40
+QPlS01UBlu,Kubek z nadrukiem Płatki śniegu,XS,Unisex,Blue,7;20,44
+QPlS01UPin,Kubek z nadrukiem Płatki śniegu,XS,Unisex,Pink,7;20,44
+QPlS02MBla,Kubek z nadrukiem Płatki śniegu,S,Man,Black,7;20,39
+QPlS02MLBl,Kubek z nadrukiem Płatki śniegu,S,Man,Light Blue,7;20,39
+QPlS04URed,Kubek z nadrukiem Płatki śniegu,L,Unisex,Red,7;20,41
+QPlS05UGrn,Kubek z nadrukiem Płatki śniegu,XL,Unisex,Green,7;20,44
+QQeN00URed,Kubek z nadrukiem Queen,ONE_SIZE,Unisex,Red,7;17,47
+QQeN01MBla,Kubek z nadrukiem Queen,XS,Man,Black,7;17,47
+QQeN01UGry,Kubek z nadrukiem Queen,XS,Unisex,Grey,7;17,49
+QQeN01WPin,Kubek z nadrukiem Queen,XS,Woman,Pink,7;17,47
+QQeN01WRed,Kubek z nadrukiem Queen,XS,Woman,Red,7;17,47
+QQeN01WWhi,Kubek z nadrukiem Queen,XS,Woman,White,7;17,47
+QQeN02MBla,Kubek z nadrukiem Queen,S,Man,Black,7;17,44
+QQeN02MBlu,Kubek z nadrukiem Queen,S,Man,Blue,7;17,44
+QQeN03MGry,Kubek z nadrukiem Queen,M,Man,Grey,7;17,42
+QQeN03WGrn,Kubek z nadrukiem Queen,M,Woman,Green,7;17,42
+QQeN05MBlu,Kubek z nadrukiem Queen,XL,Man,Blue,7;17,47
+QQeN05UBlu,Kubek z nadrukiem Queen,XL,Unisex,Blue,7;17,49
+QSeC00UBlu,Kubek z nadrukiem Serce,ONE_SIZE,Unisex,Blue,7;19,41
+QSeC00UGry,Kubek z nadrukiem Serce,ONE_SIZE,Unisex,Grey,7;19,41
+QSeC00WLBl,Kubek z nadrukiem Serce,ONE_SIZE,Woman,Light Blue,7;19,39
+QSeC02WGrn,Kubek z nadrukiem Serce,S,Woman,Green,7;19,38
+QSeC03MBlu,Kubek z nadrukiem Serce,M,Man,Blue,7;19,36
+QSeC03UWhi,Kubek z nadrukiem Serce,M,Unisex,White,7;19,38
+QSeC03WGry,Kubek z nadrukiem Serce,M,Woman,Grey,7;19,36
+QSeC04UGrn,Kubek z nadrukiem Serce,L,Unisex,Green,7;19,40
+QSeC05URed,Kubek z nadrukiem Serce,XL,Unisex,Red,7;19,43
+QStW00MBla,Kubek z nadrukiem Star Wars,ONE_SIZE,Man,Black,7;12,45
+QStW00MBlu,Kubek z nadrukiem Star Wars,ONE_SIZE,Man,Blue,7;12,45
+QStW00WGrn,Kubek z nadrukiem Star Wars,ONE_SIZE,Woman,Green,7;12,45
+QStW01MRed,Kubek z nadrukiem Star Wars,XS,Man,Red,7;12,47
+QStW02WGrn,Kubek z nadrukiem Star Wars,S,Woman,Green,7;12,44
+QStW03MGry,Kubek z nadrukiem Star Wars,M,Man,Grey,7;12,42
+QStW03UGry,Kubek z nadrukiem Star Wars,M,Unisex,Grey,7;12,44
+QStW03WWhi,Kubek z nadrukiem Star Wars,M,Woman,White,7;12,42
+QStW05UBlu,Kubek z nadrukiem Star Wars,XL,Unisex,Blue,7;12,49
+QThS00UGrn,Kubek z nadrukiem The Simpsons,ONE_SIZE,Unisex,Green,7;14,43
+QThS00WWhi,Kubek z nadrukiem The Simpsons,ONE_SIZE,Woman,White,7;14,41
+QThS01WLBl,Kubek z nadrukiem The Simpsons,XS,Woman,Light Blue,7;14,43
+QThS01WPin,Kubek z nadrukiem The Simpsons,XS,Woman,Pink,7;14,43
+QThS02MPin,Kubek z nadrukiem The Simpsons,S,Man,Pink,7;14,40
+QThS02UGry,Kubek z nadrukiem The Simpsons,S,Unisex,Grey,7;14,42
+QThS03MLBl,Kubek z nadrukiem The Simpsons,M,Man,Light Blue,7;14,38
+QThS03WGrn,Kubek z nadrukiem The Simpsons,M,Woman,Green,7;14,38
+QThS04MLBl,Kubek z nadrukiem The Simpsons,L,Man,Light Blue,7;14,40
+QThS04UBlu,Kubek z nadrukiem The Simpsons,L,Unisex,Blue,7;14,42
+QThS04ULBl,Kubek z nadrukiem The Simpsons,L,Unisex,Light Blue,7;14,42
+TCzK00URed,Torba z nadrukiem Czaszka,ONE_SIZE,Unisex,Red,6;18,50
+TCzK01MBlu,Torba z nadrukiem Czaszka,XS,Man,Blue,6;18,50
+TCzK01MWhi,Torba z nadrukiem Czaszka,XS,Man,White,6;18,50
+TCzK01UBlu,Torba z nadrukiem Czaszka,XS,Unisex,Blue,6;18,52
+TCzK02MRed,Torba z nadrukiem Czaszka,S,Man,Red,6;18,47
+TCzK02WGrn,Torba z nadrukiem Czaszka,S,Woman,Green,6;18,47
+TCzK02WWhi,Torba z nadrukiem Czaszka,S,Woman,White,6;18,47
+TCzK03MBlu,Torba z nadrukiem Czaszka,M,Man,Blue,6;18,45
+TCzK03URed,Torba z nadrukiem Czaszka,M,Unisex,Red,6;18,47
+TCzK04MPin,Torba z nadrukiem Czaszka,L,Man,Pink,6;18,47
+TCzK04WWhi,Torba z nadrukiem Czaszka,L,Woman,White,6;18,47
+TCzK05MBla,Torba z nadrukiem Czaszka,XL,Man,Black,6;18,50
+TCzK05UBla,Torba z nadrukiem Czaszka,XL,Unisex,Black,6;18,52
+THaP00WBlu,Torba z nadrukiem Harry Potter,ONE_SIZE,Woman,Blue,6;13,53
+THaP01MBlu,Torba z nadrukiem Harry Potter,XS,Man,Blue,6;13,55
+THaP01MPin,Torba z nadrukiem Harry Potter,XS,Man,Pink,6;13,55
+THaP02UBlu,Torba z nadrukiem Harry Potter,S,Unisex,Blue,6;13,54
+THaP03MBla,Torba z nadrukiem Harry Potter,M,Man,Black,6;13,50
+THaP03MLBl,Torba z nadrukiem Harry Potter,M,Man,Light Blue,6;13,50
+THaP03UGry,Torba z nadrukiem Harry Potter,M,Unisex,Grey,6;13,52
+THaP03WBla,Torba z nadrukiem Harry Potter,M,Woman,Black,6;13,50
+THaP04MRed,Torba z nadrukiem Harry Potter,L,Man,Red,6;13,52
+THaP04UGrn,Torba z nadrukiem Harry Potter,L,Unisex,Green,6;13,54
+THaP05MBla,Torba z nadrukiem Harry Potter,XL,Man,Black,6;13,55
+THaP05MGry,Torba z nadrukiem Harry Potter,XL,Man,Grey,6;13,55
+THaP05UGrn,Torba z nadrukiem Harry Potter,XL,Unisex,Green,6;13,57
+THaP05UPin,Torba z nadrukiem Harry Potter,XL,Unisex,Pink,6;13,57
+THaP05URed,Torba z nadrukiem Harry Potter,XL,Unisex,Red,6;13,57
+THaP05WWhi,Torba z nadrukiem Harry Potter,XL,Woman,White,6;13,55
+TIrM00MPin,Torba z nadrukiem Iron Maiden,ONE_SIZE,Man,Pink,6;15,53
+TIrM00MWhi,Torba z nadrukiem Iron Maiden,ONE_SIZE,Man,White,6;15,53
+TIrM00WRed,Torba z nadrukiem Iron Maiden,ONE_SIZE,Woman,Red,6;15,53
+TIrM01UBla,Torba z nadrukiem Iron Maiden,XS,Unisex,Black,6;15,57
+TIrM01UGry,Torba z nadrukiem Iron Maiden,XS,Unisex,Grey,6;15,57
+TIrM02MGry,Torba z nadrukiem Iron Maiden,S,Man,Grey,6;15,52
+TIrM02WGry,Torba z nadrukiem Iron Maiden,S,Woman,Grey,6;15,52
+TIrM03UBla,Torba z nadrukiem Iron Maiden,M,Unisex,Black,6;15,52
+TIrM04MBlu,Torba z nadrukiem Iron Maiden,L,Man,Blue,6;15,52
+TIrM04MGry,Torba z nadrukiem Iron Maiden,L,Man,Grey,6;15,52
+TIrM04WRed,Torba z nadrukiem Iron Maiden,L,Woman,Red,6;15,52
+TIrM05MGrn,Torba z nadrukiem Iron Maiden,XL,Man,Green,6;15,55
+TIrM05WBlu,Torba z nadrukiem Iron Maiden,XL,Woman,Blue,6;15,55
+TLeZ00MGrn,Torba z nadrukiem Led Zeppelin,ONE_SIZE,Man,Green,6;16,54
+TLeZ00UGry,Torba z nadrukiem Led Zeppelin,ONE_SIZE,Unisex,Grey,6;16,56
+TLeZ00WGry,Torba z nadrukiem Led Zeppelin,ONE_SIZE,Woman,Grey,6;16,54
+TLeZ01UPin,Torba z nadrukiem Led Zeppelin,XS,Unisex,Pink,6;16,58
+TLeZ01WBlu,Torba z nadrukiem Led Zeppelin,XS,Woman,Blue,6;16,56
+TLeZ01WGry,Torba z nadrukiem Led Zeppelin,XS,Woman,Grey,6;16,56
+TLeZ02WRed,Torba z nadrukiem Led Zeppelin,S,Woman,Red,6;16,53
+TLeZ03MRed,Torba z nadrukiem Led Zeppelin,M,Man,Red,6;16,51
+TLeZ03WBla,Torba z nadrukiem Led Zeppelin,M,Woman,Black,6;16,51
+TLeZ04UPin,Torba z nadrukiem Led Zeppelin,L,Unisex,Pink,6;16,55
+TLeZ04URed,Torba z nadrukiem Led Zeppelin,L,Unisex,Red,6;16,55
+TLeZ05MGry,Torba z nadrukiem Led Zeppelin,XL,Man,Grey,6;16,56
+TLeZ05UGrn,Torba z nadrukiem Led Zeppelin,XL,Unisex,Green,6;16,58
+TPlS00MBla,Torba z nadrukiem Płatki śniegu,ONE_SIZE,Man,Black,6;20,50
+TPlS00WPin,Torba z nadrukiem Płatki śniegu,ONE_SIZE,Woman,Pink,6;20,50
+TPlS01MRed,Torba z nadrukiem Płatki śniegu,XS,Man,Red,6;20,52
+TPlS01WBlu,Torba z nadrukiem Płatki śniegu,XS,Woman,Blue,6;20,52
+TPlS02MGry,Torba z nadrukiem Płatki śniegu,S,Man,Grey,6;20,49
+TPlS02MPin,Torba z nadrukiem Płatki śniegu,S,Man,Pink,6;20,49
+TPlS02UBla,Torba z nadrukiem Płatki śniegu,S,Unisex,Black,6;20,51
+TPlS02WWhi,Torba z nadrukiem Płatki śniegu,S,Woman,White,6;20,49
+TPlS03MPin,Torba z nadrukiem Płatki śniegu,M,Man,Pink,6;20,47
+TPlS03UWhi,Torba z nadrukiem Płatki śniegu,M,Unisex,White,6;20,49
+TPlS03WBla,Torba z nadrukiem Płatki śniegu,M,Woman,Black,6;20,47
+TPlS03WLBl,Torba z nadrukiem Płatki śniegu,M,Woman,Light Blue,6;20,47
+TPlS04MPin,Torba z nadrukiem Płatki śniegu,L,Man,Pink,6;20,49
+TPlS04UGry,Torba z nadrukiem Płatki śniegu,L,Unisex,Grey,6;20,51
+TPlS04UWhi,Torba z nadrukiem Płatki śniegu,L,Unisex,White,6;20,51
+TPlS04WWhi,Torba z nadrukiem Płatki śniegu,L,Woman,White,6;20,49
+TPlS05MBla,Torba z nadrukiem Płatki śniegu,XL,Man,Black,6;20,52
+TPlS05MGrn,Torba z nadrukiem Płatki śniegu,XL,Man,Green,6;20,52
+TPlS05MPin,Torba z nadrukiem Płatki śniegu,XL,Man,Pink,6;20,52
+TQeN00MRed,Torba z nadrukiem Queen,ONE_SIZE,Man,Red,6;17,55
+TQeN00UBla,Torba z nadrukiem Queen,ONE_SIZE,Unisex,Black,6;17,57
+TQeN01WBlu,Torba z nadrukiem Queen,XS,Woman,Blue,6;17,57
+TQeN03MGry,Torba z nadrukiem Queen,M,Man,Grey,6;17,52
+TQeN03WGry,Torba z nadrukiem Queen,M,Woman,Grey,6;17,52
+TQeN03WPin,Torba z nadrukiem Queen,M,Woman,Pink,6;17,52
+TQeN03WWhi,Torba z nadrukiem Queen,M,Woman,White,6;17,52
+TQeN04MBlu,Torba z nadrukiem Queen,L,Man,Blue,6;17,54
+TQeN04MGrn,Torba z nadrukiem Queen,L,Man,Green,6;17,54
+TQeN04WGrn,Torba z nadrukiem Queen,L,Woman,Green,6;17,54
+TQeN05MBla,Torba z nadrukiem Queen,XL,Man,Black,6;17,57
+TQeN05MGrn,Torba z nadrukiem Queen,XL,Man,Green,6;17,57
+TQeN05ULBl,Torba z nadrukiem Queen,XL,Unisex,Light Blue,6;17,59
+TQeN05WGry,Torba z nadrukiem Queen,XL,Woman,Grey,6;17,57
+TSeC00WBla,Torba z nadrukiem Serce,ONE_SIZE,Woman,Black,6;19,49
+TSeC01UGrn,Torba z nadrukiem Serce,XS,Unisex,Green,6;19,53
+TSeC02MRed,Torba z nadrukiem Serce,S,Man,Red,6;19,48
+TSeC02UBla,Torba z nadrukiem Serce,S,Unisex,Black,6;19,50
+TSeC02UWhi,Torba z nadrukiem Serce,S,Unisex,White,6;19,50
+TSeC03MBlu,Torba z nadrukiem Serce,M,Man,Blue,6;19,46
+TSeC03UBla,Torba z nadrukiem Serce,M,Unisex,Black,6;19,48
+TSeC03ULBl,Torba z nadrukiem Serce,M,Unisex,Light Blue,6;19,48
+TSeC03WRed,Torba z nadrukiem Serce,M,Woman,Red,6;19,46
+TSeC04UGrn,Torba z nadrukiem Serce,L,Unisex,Green,6;19,50
+TSeC04WBlu,Torba z nadrukiem Serce,L,Woman,Blue,6;19,48
+TSeC04WGrn,Torba z nadrukiem Serce,L,Woman,Green,6;19,48
+TSeC05UWhi,Torba z nadrukiem Serce,XL,Unisex,White,6;19,53
+TSeC05WPin,Torba z nadrukiem Serce,XL,Woman,Pink,6;19,51
+TStW00ULBl,Torba z nadrukiem Star Wars,ONE_SIZE,Unisex,Light Blue,6;12,57
+TStW01MLBl,Torba z nadrukiem Star Wars,XS,Man,Light Blue,6;12,57
+TStW01UGry,Torba z nadrukiem Star Wars,XS,Unisex,Grey,6;12,59
+TStW02MBlu,Torba z nadrukiem Star Wars,S,Man,Blue,6;12,54
+TStW02MLBl,Torba z nadrukiem Star Wars,S,Man,Light Blue,6;12,54
+TStW02ULBl,Torba z nadrukiem Star Wars,S,Unisex,Light Blue,6;12,56
+TStW03MGry,Torba z nadrukiem Star Wars,M,Man,Grey,6;12,52
+TStW03WPin,Torba z nadrukiem Star Wars,M,Woman,Pink,6;12,52
+TStW04UBla,Torba z nadrukiem Star Wars,L,Unisex,Black,6;12,56
+TStW04WGry,Torba z nadrukiem Star Wars,L,Woman,Grey,6;12,54
+TStW05UBlu,Torba z nadrukiem Star Wars,XL,Unisex,Blue,6;12,59
+TStW05WRed,Torba z nadrukiem Star Wars,XL,Woman,Red,6;12,57
+TThS00WGrn,Torba z nadrukiem The Simpsons,ONE_SIZE,Woman,Green,6;14,51
+TThS01UBla,Torba z nadrukiem The Simpsons,XS,Unisex,Black,6;14,55
+TThS02MPin,Torba z nadrukiem The Simpsons,S,Man,Pink,6;14,50
+TThS04UBla,Torba z nadrukiem The Simpsons,L,Unisex,Black,6;14,52
+TThS05MBla,Torba z nadrukiem The Simpsons,XL,Man,Black,6;14,53
+TThS05MPin,Torba z nadrukiem The Simpsons,XL,Man,Pink,6;14,53
+TThS05UWhi,Torba z nadrukiem The Simpsons,XL,Unisex,White,6;14,55

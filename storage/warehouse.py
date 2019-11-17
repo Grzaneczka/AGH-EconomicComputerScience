@@ -22,8 +22,8 @@ class Size(Enum):
 
 class Sex(Enum):
     UNISEX = 0
-    WOMEN = 1
-    MEN = 2
+    WOMAN = 1
+    MAN = 2
 
 
 class Product(NamedTuple):
@@ -33,7 +33,6 @@ class Product(NamedTuple):
     sex: Sex
     color: str
     categories: List[Category]
-    price: Money
     delivery_time: float    
 
 
@@ -48,6 +47,7 @@ class Operation(NamedTuple):
     type: OperationType
     product: Product
     quantity: int
+    price: Money
 
 
 class Warehouse:
@@ -88,9 +88,8 @@ class Warehouse:
                     self.categories[int(c)]
                     for c in row[5].split(';')
                 ]
-                price = Money(row[6], PLN)
                 
-                self.products[row[0]] = Product(row[0], row[1], size, sex, row[4].lower(), categories, price, float(row[7]))
+                self.products[row[0]] = Product(row[0], row[1], size, sex, row[4].lower(), categories, float(row[6]))
                 
     def load_operations(self, path: str):
         """ Loads operations from given CSV file """
@@ -101,10 +100,11 @@ class Warehouse:
             
             for row in csv_reader:
                 operation_type = OperationType[row[2].upper()]
-                date = datetime.strptime(row[1], '%d-%m-%Y')
+                date = datetime.strptime(row[1], '%d/%m/%Y')
                 product = self.products[row[3]]
+                price = Money(row[5], PLN)
                 
-                self.operations[int(row[0])] = Operation(int(row[0]), date, operation_type, product, int(row[4]))
+                self.operations[int(row[0])] = Operation(int(row[0]), date, operation_type, product, int(row[4]), price)
                 
     def load(self, path_categories: str, path_products: str, path_operations: str):
         """ Loads warehouse data from given files """
