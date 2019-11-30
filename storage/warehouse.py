@@ -1,5 +1,5 @@
 import csv
-from typing import NamedTuple, List, Optional, Dict
+from typing import NamedTuple, List, Optional, Dict, Tuple
 from enum import Enum
 from moneyed import Money, PLN
 from datetime import datetime
@@ -32,7 +32,7 @@ class Product(NamedTuple):
     size: Size
     sex: Sex
     color: str
-    categories: List[Category]
+    categories: Tuple[Category, ...]
     delivery_time: float    
 
 
@@ -84,10 +84,10 @@ class Warehouse:
             for row in csv_reader:
                 size = Size[row[2].upper()]
                 sex = Sex[row[3].upper()]
-                categories = [
+                categories = tuple(
                     self.categories[int(c)]
                     for c in row[5].split(';')
-                ]
+                )
                 
                 self.products[row[0]] = Product(row[0], row[1], size, sex, row[4].lower(), categories, float(row[6]))
                 
