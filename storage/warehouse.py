@@ -103,7 +103,7 @@ class Warehouse:
                 date = datetime.strptime(row[1], '%d/%m/%Y')
                 product = self.products[row[3]]
                 price = Money(row[5], PLN)
-
+                
                 self.operations[int(row[0])] = Operation(int(row[0]), date, operation_type, product, int(row[4]), price)
                 
     def load(self, path_categories: str, path_products: str, path_operations: str):
