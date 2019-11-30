@@ -1,5 +1,5 @@
 import csv
-from typing import NamedTuple, List, Optional
+from typing import NamedTuple, List, Optional, Dict
 from enum import Enum
 from moneyed import Money, PLN
 from datetime import datetime
@@ -55,14 +55,14 @@ class Warehouse:
     
     def __init__(self):
         """ Creates empty warehouse """
-        self.categories = {}
-        self.products = {}
-        self.operations = {}
+        self.categories: Dict[str, Category] = {}
+        self.products: Dict[str, Product] = {}
+        self.operations: Dict[str, Operation] = {}
         
     def load_categories(self, path: str):
         """ Loads catories from given CSV file """
         with open(path, 'r') as f:
-            csv_reader = csv.reader(f, delimiter=',')
+            csv_reader = csv.reader(f, delimiter=';')
             # skip header 
             next(csv_reader)
             
@@ -77,7 +77,7 @@ class Warehouse:
     def load_products(self, path: str):
         """ Loads products from given CSV file """
         with open(path, 'r') as f:
-            csv_reader = csv.reader(f, delimiter=',')
+            csv_reader = csv.reader(f, delimiter=';')
             # skip header 
             next(csv_reader)
             
@@ -94,7 +94,7 @@ class Warehouse:
     def load_operations(self, path: str):
         """ Loads operations from given CSV file """
         with open(path, 'r') as f:
-            csv_reader = csv.reader(f, delimiter=',')
+            csv_reader = csv.reader(f, delimiter=';')
             # skip header 
             next(csv_reader)
             
