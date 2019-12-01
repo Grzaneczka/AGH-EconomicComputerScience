@@ -1,6 +1,8 @@
 from datetime import datetime
 from typing import List, Dict
 
+from moneyed import Money, PLN
+
 from storage.warehouse import Warehouse, Product, Operation, OperationType
 
 """ Funkcje stanu magazynu """
@@ -49,3 +51,53 @@ def get_products_starting_with(id_prefix: str, wh: Warehouse) -> List[Product]:
         for prod in wh.products.values()
         if prod.id.startswith(id_prefix)
     ]
+
+
+def get_year_income(year: int, wh: Warehouse) -> Money:
+    """ Zwraca przychód na dany rok """
+    return sum((
+            op.total_price
+            for op in wh.operations.values()
+            if op.date.year == year and op.type == OperationType.SALE
+        ),
+        Money(0, PLN)
+    )
+
+
+def get_year_costs(year: int, wh: Warehouse) -> Money:
+    """ Zwraca koszty na dany rok """
+    return sum((
+            op.total_price
+            for op in wh.operations.values()
+            if op.date.year == year and op.type == OperationType.RESUPPLY
+        ),
+        Money(0, PLN)
+    )
+
+
+def get_year_sales(year: int, wh: Warehouse) -> int:
+    """ Zwraca ilosc sprzedanych towarow na dany rok """
+    return sum(
+        op.quantity
+        for op in wh.operations.values()
+        if op.date.year == year and op.type == OperationType.SALE
+    )
+
+
+def get_year_resupply(year: int, wh: Warehouse) -> int:
+    """ Zwraca ilosc zamówionych towarow na dany rok """
+    return sum(
+        op.quantity
+        for op in wh.operations.values()
+        if op.date.year == year and op.type == OperationType.RESUPPLY
+    )
+
+
+def get_year_balance(year: int, wh: Warehouse) -> Money:
+    """ Zwraca bilans na dany rok """
+    return get_year_income(year, wh) - get_year_costs(year, wh)
+
+
+def get_year_products_balance(year: int, wh: Warehouse) -> int:
+    """ Zwraca bilans produktów w magazynie na dany rok """
+    return get_year_resupply(year, wh) - get_year_sales(year, wh)

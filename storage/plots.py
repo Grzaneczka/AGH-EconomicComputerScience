@@ -4,6 +4,7 @@ from operator import attrgetter
 
 import matplotlib.pyplot as plt
 
+from storage import analysis
 from storage.analysis import stock_statuses_for_general_product
 from storage.warehouse import Warehouse
 
@@ -106,3 +107,33 @@ def plot_stock(id_prefix: str, wh: Warehouse, time: datetime = None):
         plot_stock_by_size(id_prefix, wh, time)
     else:
         plot_stock_by_color(id_prefix, wh, time)
+
+
+def plot_yearly_balance(year_from: int, year_to: int, wh: Warehouse):
+    """ Wyświetla wykres kosztow i dochodów na przestrzeni lat """
+    x = list(range(year_from, year_to + 1))
+    costs = [analysis.get_year_costs(year, wh).amount for year in x]
+    incomes = [analysis.get_year_income(year, wh).amount for year in x]
+    balance = [analysis.get_year_balance(year, wh).amount for year in x]
+
+    plt.plot(x, costs, c='r', label='Costs')
+    plt.plot(x, incomes, c='g', label='Incomes')
+    plt.plot(x, balance, c='b', label='Balances')
+    plt.title('Yearly incomes and costs')
+    plt.legend()
+    plt.show()
+
+
+def plot_yearly_products_balance(year_from: int, year_to: int, wh: Warehouse):
+    """ Wyświetla wykres dostaw i sprzedazy na przestrzeni lat """
+    x = list(range(year_from, year_to + 1))
+    sales = [analysis.get_year_sales(year, wh) for year in x]
+    resupply = [analysis.get_year_resupply(year, wh) for year in x]
+    balance = [analysis.get_year_products_balance(year, wh) for year in x]
+
+    plt.plot(x, sales, c='r', label='Sales')
+    plt.plot(x, resupply, c='g', label='Resupplies')
+    plt.plot(x, balance, c='b', label='Balances')
+    plt.title('Yearly products resupplies and sales')
+    plt.legend()
+    plt.show()

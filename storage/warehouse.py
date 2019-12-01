@@ -49,6 +49,10 @@ class Operation(NamedTuple):
     quantity: int
     price: Money
 
+    @property
+    def total_price(self) -> Money:
+        return self.price * self.quantity
+
 
 class Warehouse:
     """ Class that stores and manages available data. """
