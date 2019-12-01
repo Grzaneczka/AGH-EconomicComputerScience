@@ -6,22 +6,21 @@ from typing import List, Dict
 from storage.warehouse import Warehouse, Product, Operation, OperationType, Sex, Size
 import matplotlib.pyplot as plt
 
-""" Funkcje stanu magazynu - podając id """
+""" Funkcje stanu magazynu """
 
 
-def stock_statuses_for_general_product(id_prefix: str, wh: Warehouse) -> Dict[str, int]:
-    """ Funkcja zwracająca ilość w magazynie dla produktów, których id zaczynających się na wpisaną wartość """
+def stock_statuses_for_general_product(id_prefix: str, wh: Warehouse) -> Dict[Product, int]:
+    """ Funkcja zwracająca ilość w magazynie dla produktów, których id zaczynających się na wpisaną wartość. """
     return {
-        id: stock_status_for_product(id, wh)
-        for id in get_products_ids_starting_with(id_prefix, wh)
+        prod: stock_status_for_product(prod, wh)
+        for prod in get_products_starting_with(id_prefix, wh)
     }
 
 
-def stock_status_for_product(id: str, wh: Warehouse) -> int:
-    """ Funkcja zwracająca ilość w magazynie dla prokuktu którego id podaliśmy """
-    # Sprawdza wszystkie operacje - trzeba poprawić by sprawdzał tylko do dziś
+def stock_status_for_product(prod: Product, wh: Warehouse) -> int:
+    """ Funkcja zwracająca ilość w magazynie podanego produktu. """
     count = 0
-    for operation in get_product_operations(id, wh):
+    for operation in get_product_operations(prod, wh):
 
         # skip operations in future
         if operation.date > datetime.now():
@@ -34,29 +33,26 @@ def stock_status_for_product(id: str, wh: Warehouse) -> int:
     return count
 
 
-def get_product_operations(id: str, wh: Warehouse) -> List[Operation]:
-    """ Funkcja zwracająca wszytskie operacje dla produktu którego id podaliśmy  """
+def get_product_operations(prod: Product, wh: Warehouse) -> List[Operation]:
+    """ Funkcja zwracająca wszytskie operacje dla podanego produktu.  """
     return [
         op
         for op in wh.operations.values()
-        if op.product.id == id
+        if op.product == prod
     ]
 
 
-def get_products_ids_starting_with(id: str, wh: Warehouse) -> List[str]:
-    """ Funkcja zwracająca id wszystkich produktów zaczynających się na wpisaną wartość """
+def get_products_starting_with(id_prefix: str, wh: Warehouse) -> List[Product]:
+    """ Funkcja zwracająca wszystkie produkty których id zaczyna się od podanej wartości. """
     return [
-        pid
-        for pid in wh.products.keys()
-        if pid.startswith(id)
+        prod
+        for prod in wh.products.values()
+        if prod.id.startswith(id_prefix)
     ]
 
 
 def plot_stock_by_color(id_prefix: str, wh: Warehouse):
-    stock = {
-        wh.products[pid]: count
-        for pid, count in stock_statuses_for_general_product(id_prefix, wh).items()
-    }
+    stock = stock_statuses_for_general_product(id_prefix, wh)
     sexes = sorted({p.sex for p in stock.keys()}, key=attrgetter('value'))
     colors = sorted({p.color for p in stock.keys()})
 
@@ -101,10 +97,7 @@ def plot_stock_by_color(id_prefix: str, wh: Warehouse):
 
 
 def plot_stock_by_size(id_prefix: str, wh: Warehouse):
-    stock = {
-        wh.products[pid]: count
-        for pid, count in stock_statuses_for_general_product(id_prefix, wh).items()
-    }
+    stock = stock_statuses_for_general_product(id_prefix, wh)
     sexes = sorted({p.sex for p in stock.keys()}, key=attrgetter('value'))
     sizes = sorted({p.size for p in stock.keys()}, key=attrgetter('value'))
 
