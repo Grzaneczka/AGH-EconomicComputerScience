@@ -2,7 +2,7 @@ import csv
 from typing import NamedTuple, List, Optional, Dict, Tuple
 from enum import Enum
 from moneyed import Money, PLN
-from datetime import datetime
+from datetime import date
 
 
 class Category(NamedTuple):
@@ -43,7 +43,7 @@ class OperationType(Enum):
 
 class Operation(NamedTuple):
     id: int
-    date: datetime
+    date: date
     type: OperationType
     product: Product
     quantity: int
@@ -104,11 +104,11 @@ class Warehouse:
             
             for row in csv_reader:
                 operation_type = OperationType[row[2].upper()]
-                date = datetime.strptime(row[1], '%d/%m/%Y')
+                operation_date = date.fromisoformat(row[1])
                 product = self.products[row[3]]
                 price = Money(row[5], PLN)
                 
-                self.operations[int(row[0])] = Operation(int(row[0]), date, operation_type, product, int(row[4]), price)
+                self.operations[int(row[0])] = Operation(int(row[0]), operation_date, operation_type, product, int(row[4]), price)
                 
     def load(self, path_categories: str, path_products: str, path_operations: str):
         """ Loads warehouse data from given files """
