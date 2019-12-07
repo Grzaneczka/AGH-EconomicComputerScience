@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, date
 from typing import List, Dict
 
 from moneyed import Money, PLN
@@ -36,7 +36,7 @@ def stock_status_for_product(prod: Product, wh: Warehouse, time: datetime = None
 
 
 def get_product_operations(prod: Product, wh: Warehouse) -> List[Operation]:
-    """ Funkcja zwracająca wszytskie operacje dla podanego produktu.  """
+    """ Funkcja zwracająca wszytskie operacje dla podanego produktu. """
     return [
         op
         for op in wh.operations.values()
@@ -53,51 +53,87 @@ def get_products_starting_with(id_prefix: str, wh: Warehouse) -> List[Product]:
     ]
 
 
-def get_year_income(year: int, wh: Warehouse) -> Money:
-    """ Zwraca przychód na dany rok """
+def get_income(date_from: date, date_to: date, wh: Warehouse) -> Money:
+    """
+    Zwraca przychód na dany domknięto-otwarty okres
+    :param date_from: data poczatkowa
+    :param date_to: data koncowa
+    :param wh: magazyn
+    :return: suma przychodow za dany okres
+    """
     return sum((
             op.total_price
             for op in wh.operations.values()
-            if op.date.year == year and op.type == OperationType.SALE
+            if date_from <= op.date < date_to and op.type == OperationType.SALE
         ),
         Money(0, PLN)
     )
 
 
-def get_year_costs(year: int, wh: Warehouse) -> Money:
-    """ Zwraca koszty na dany rok """
+def get_costs(date_from: date, date_to: date, wh: Warehouse) -> Money:
+    """
+    Zwraca koszty na dany domknięto-otwarty okres
+    :param date_from: data poczatkowa
+    :param date_to: data koncowa
+    :param wh: magazyn
+    :return: suma kosztow za dany okres
+    """
     return sum((
             op.total_price
             for op in wh.operations.values()
-            if op.date.year == year and op.type == OperationType.RESUPPLY
+            if date_from <= op.date < date_to and op.type == OperationType.RESUPPLY
         ),
         Money(0, PLN)
     )
 
 
-def get_year_sales(year: int, wh: Warehouse) -> int:
-    """ Zwraca ilosc sprzedanych towarow na dany rok """
+def get_sales(date_from: date, date_to: date, wh: Warehouse) -> int:
+    """
+    Zwraca ilosc sprzedanych towarow na dany domknięto-otwarty okres
+    :param date_from: data poczatkowa
+    :param date_to: data koncowa
+    :param wh: magazyn
+    :return: ilosc sprzedanych towarow za dany okres
+    """
     return sum(
         op.quantity
         for op in wh.operations.values()
-        if op.date.year == year and op.type == OperationType.SALE
+        if date_from <= op.date < date_to and op.type == OperationType.SALE
     )
 
 
-def get_year_resupply(year: int, wh: Warehouse) -> int:
-    """ Zwraca ilosc zamówionych towarow na dany rok """
+def get_resupply(date_from: date, date_to: date, wh: Warehouse) -> int:
+    """
+    Zwraca ilosc zamowionych towarow na dany domknięto-otwarty okres
+    :param date_from: data poczatkowa
+    :param date_to: data koncowa
+    :param wh: magazyn
+    :return: ilosc zamowionych towarow za dany okres
+    """
     return sum(
         op.quantity
         for op in wh.operations.values()
-        if op.date.year == year and op.type == OperationType.RESUPPLY
+        if date_from <= op.date < date_to and op.type == OperationType.RESUPPLY
     )
 
 
-def get_year_balance(year: int, wh: Warehouse) -> Money:
-    """ Zwraca bilans na dany rok """
-    return get_year_income(year, wh) - get_year_costs(year, wh)
+def get_balance(date_from: date, date_to: date, wh: Warehouse) -> Money:
+    """
+    Zwraca bilans na dany domknięto-otwarty okres
+    :param date_from: data poczatkowa
+    :param date_to: data koncowa
+    :param wh: magazyn
+    :return: bilans za dany okres
+    """
+    return get_income(date_from, date_to, wh) - get_costs(date_from, date_to, wh)
 
 
-def get_year_products_balance(year: int, wh: Warehouse) -> int:
-    """ Zwraca bilans produktów w magazynie na dany rok """
-    return get_year_resupply(year, wh) - get_year_sales(year, wh)
+def get_products_balance(date_from: date, date_to: date, wh: Warehouse) -> int:
+    """
+    Zwraca bilans produktow na dany domknięto-otwarty okres
+    :param date_from: data poczatkowa
+    :param date_to: data koncowa
+    :param wh: magazyn
+    :return: bilans produktow za dany okres
+    """
+    return get_resupply(date_from, date_to, wh) - get_sales(date_from, date_to, wh)

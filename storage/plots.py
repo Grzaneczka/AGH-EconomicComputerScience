@@ -1,5 +1,5 @@
 from collections import defaultdict
-from datetime import datetime
+from datetime import datetime, date
 from operator import attrgetter
 
 import matplotlib.pyplot as plt
@@ -111,29 +111,33 @@ def plot_stock(id_prefix: str, wh: Warehouse, time: datetime = None):
 
 def plot_yearly_balance(year_from: int, year_to: int, wh: Warehouse):
     """ Wyświetla wykres kosztow i dochodów na przestrzeni lat """
-    x = list(range(year_from, year_to + 1))
-    costs = [analysis.get_year_costs(year, wh).amount for year in x]
-    incomes = [analysis.get_year_income(year, wh).amount for year in x]
-    balance = [analysis.get_year_balance(year, wh).amount for year in x]
 
-    plt.plot(x, costs, c='r', label='Costs')
-    plt.plot(x, incomes, c='g', label='Incomes')
-    plt.plot(x, balance, c='b', label='Balances')
+    years = list(range(year_from, year_to + 1))
+    costs = [analysis.get_costs(date(y, 1, 1), date(y + 1, 1, 1), wh).amount for y in years]
+    incomes = [analysis.get_income(date(y, 1, 1), date(y + 1, 1, 1), wh).amount for y in years]
+    balance = [analysis.get_balance(date(y, 1, 1), date(y + 1, 1, 1), wh).amount for y in years]
+
+    plt.plot(years, costs, c='r', label='Costs')
+    plt.plot(years, incomes, c='g', label='Incomes')
+    plt.plot(years, balance, c='b', label='Balances')
     plt.title('Yearly incomes and costs')
+    plt.xticks(years)
     plt.legend()
     plt.show()
 
 
 def plot_yearly_products_balance(year_from: int, year_to: int, wh: Warehouse):
     """ Wyświetla wykres dostaw i sprzedazy na przestrzeni lat """
-    x = list(range(year_from, year_to + 1))
-    sales = [analysis.get_year_sales(year, wh) for year in x]
-    resupply = [analysis.get_year_resupply(year, wh) for year in x]
-    balance = [analysis.get_year_products_balance(year, wh) for year in x]
 
-    plt.plot(x, sales, c='r', label='Sales')
-    plt.plot(x, resupply, c='g', label='Resupplies')
-    plt.plot(x, balance, c='b', label='Balances')
+    years = list(range(year_from, year_to+1))
+    sales = [analysis.get_sales(date(y, 1, 1), date(y+1, 1, 1), wh) for y in years]
+    resupply = [analysis.get_resupply(date(y, 1, 1), date(y+1, 1, 1), wh) for y in years]
+    balance = [analysis.get_products_balance(date(y, 1, 1), date(y+1, 1, 1), wh) for y in years]
+
+    plt.plot(years, sales, c='r', label='Sales')
+    plt.plot(years, resupply, c='g', label='Resupplies')
+    plt.plot(years, balance, c='b', label='Balances')
     plt.title('Yearly products resupplies and sales')
+    plt.xticks(years)
     plt.legend()
     plt.show()
