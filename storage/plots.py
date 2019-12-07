@@ -1,22 +1,47 @@
 from collections import defaultdict
-from datetime import datetime, date
+from datetime import date
 from operator import attrgetter
+from typing import List, Tuple
 
 import matplotlib.pyplot as plt
 
 from storage import analysis
-from storage.analysis import stock_statuses_for_general_product
+from storage.analysis import get_statuses
 from storage.warehouse import Warehouse
 
 
-def plot_stock_by_color(id_prefix: str, wh: Warehouse, time: datetime = None):
-    """ Wyswietla wykresy (po kolorach) statusu produktow zaczynajacych sie od podanego id """
-    stock = stock_statuses_for_general_product(id_prefix, wh, time=time)
+# ========================================================
+#  SHORTCUTS FOR PLOTTING
+# ========================================================
+def plot_stock_for_category(categories: List[int], wh: Warehouse, time: date = None):
+    categories = [wh.categories[i] for i in categories]
+    plot_stock_by_color(wh, time, categories=categories)
+
+
+def plot_stock_for_product_prefix(id_prefix: str, wh: Warehouse, time: date = None):
+    if id_prefix[0] in ['T', 'Q', 'C']:
+        plot_stock_by_size(wh, time, id_prefixes=[id_prefix])
+    else:
+        plot_stock_by_color(wh, time, id_prefixes=[id_prefix])
+
+
+# ========================================================
+#  COMPLEX PLOTTING
+# ========================================================
+def plot_stock_by_color(wh: Warehouse, time: date = None, **kwargs):
+    """
+    Wyswietla wykresy (po kolorach) statusu produktow spełniajacych podane kryteria.
+
+    :param wh: magazyn
+    :param time: data dnia dla którego jest sprawdzany status
+    :param kwargs: kryteria przy wybieraniu produktow (patrz get_products())
+    """
+    stock = get_statuses(wh, time=time, **kwargs)
     sexes = sorted({p.sex for p in stock.keys()}, key=attrgetter('value'))
     colors = sorted({p.color for p in stock.keys()})
 
     # create plot
-    fig, axes = plt.subplots(nrows=len(colors), ncols=len(sexes), figsize=(12, 8), sharex='all', sharey='all', squeeze=False)
+    fig, axes = plt.subplots(nrows=len(colors), ncols=len(sexes), figsize=(12, 8), sharex='col', sharey='all', squeeze=False)
 
     # set cols titles
     for ax, sex in zip(axes[0], sexes):
@@ -55,14 +80,20 @@ def plot_stock_by_color(id_prefix: str, wh: Warehouse, time: datetime = None):
     plt.show()
 
 
-def plot_stock_by_size(id_prefix: str, wh: Warehouse, time: datetime = None):
-    """ Wyswietla wykresy (po rozmiarach) statusu produktow zaczynajacych sie od podanego id """
-    stock = stock_statuses_for_general_product(id_prefix, wh, time=time)
+def plot_stock_by_size(wh: Warehouse, time: date = None, **kwargs):
+    """
+    Wyswietla wykresy (po rozmiarach) statusu produktow spełniajacych podane kryteria.
+
+    :param wh: magazyn
+    :param time: data dnia dla którego jest sprawdzany status
+    :param kwargs: kryteria przy wybieraniu produktow (patrz get_products())
+    """
+    stock = get_statuses(wh, time=time, **kwargs)
     sexes = sorted({p.sex for p in stock.keys()}, key=attrgetter('value'))
     sizes = sorted({p.size for p in stock.keys()}, key=attrgetter('value'))
 
     # create plot
-    fig, axes = plt.subplots(nrows=len(sizes), ncols=len(sexes), figsize=(12, 8), sharex='all', sharey='all', squeeze=False)
+    fig, axes = plt.subplots(nrows=len(sizes), ncols=len(sexes), figsize=(12, 8), sharex='col', sharey='all', squeeze=False)
 
     # set cols titles
     for ax, sex in zip(axes[0], sexes):
@@ -75,6 +106,10 @@ def plot_stock_by_size(id_prefix: str, wh: Warehouse, time: datetime = None):
     # plot data
     for row, size in zip(axes, sizes):
         for ax, sex in zip(row, sexes):
+
+            # configure axis
+            ax.set_yticks([])
+            ax.tick_params(axis='x', rotation=45)
 
             # collect data
             data = defaultdict(int)
@@ -94,19 +129,8 @@ def plot_stock_by_size(id_prefix: str, wh: Warehouse, time: datetime = None):
                 height = rect.get_height()
                 ax.text(rect.get_x() + rect.get_width() / 2.0, height, '%d' % int(height), ha='center', va='bottom')
 
-            # disable ticks
-            ax.set_yticks([])
-
     fig.tight_layout()
     plt.show()
-
-
-def plot_stock(id_prefix: str, wh: Warehouse, time: datetime = None):
-    """ Wyswietla wykresy (typ wybrany automatycznie) statusu produktow zaczynajacych sie od podanego id """
-    if id_prefix[0] in ['T', 'Q', 'C']:
-        plot_stock_by_size(id_prefix, wh, time)
-    else:
-        plot_stock_by_color(id_prefix, wh, time)
 
 
 def plot_yearly_balance(year_from: int, year_to: int, wh: Warehouse):
@@ -140,4 +164,142 @@ def plot_yearly_products_balance(year_from: int, year_to: int, wh: Warehouse):
     plt.title('Yearly products resupplies and sales')
     plt.xticks(years)
     plt.legend()
+    plt.show()
+
+
+def plot_income_periods(periods: List[Tuple[date, date]], wh: Warehouse, **kwargs):
+    """
+    Wyświetla dochód dla poszczególnych okresów.
+
+    :param periods: okresy w postaci listy tupli dat od do
+    :param wh: magazyn
+    :param kwargs: kryteria przy wybieraniu produktow (patrz get_products())
+    """
+    x = [f'{d1.isoformat()}\n{d2.isoformat()}' for d1, d2 in periods]
+    y = [analysis.get_income(d1, d2, wh, **kwargs).amount for d1, d2 in periods]
+
+    bars = plt.bar(x, y)
+
+    # plot numbers
+    for rect in bars:
+        height = rect.get_height()
+        plt.text(rect.get_x() + rect.get_width() / 2.0, height, '%d' % int(height), ha='center', va='bottom')
+
+    plt.title('Income in different periods')
+    plt.ylabel('Income [PLN]')
+    plt.show()
+
+
+def plot_costs_periods(periods: List[Tuple[date, date]], wh: Warehouse, **kwargs):
+    """
+    Wyświetla koszty dla poszczególnych okresów.
+
+    :param periods: okresy w postaci listy tupli dat od do
+    :param wh: magazyn
+    :param kwargs: kryteria przy wybieraniu produktow (patrz get_products())
+    """
+    x = [f'{d1.isoformat()}\n{d2.isoformat()}' for d1, d2 in periods]
+    y = [analysis.get_costs(d1, d2, wh, **kwargs).amount for d1, d2 in periods]
+
+    bars = plt.bar(x, y)
+
+    # plot numbers
+    for rect in bars:
+        height = rect.get_height()
+        plt.text(rect.get_x() + rect.get_width() / 2.0, height, '%d' % int(height), ha='center', va='bottom')
+
+    plt.title('Costs in different periods')
+    plt.ylabel('Costs [PLN]')
+    plt.show()
+
+
+def plot_sales_periods(periods: List[Tuple[date, date]], wh: Warehouse, **kwargs):
+    """
+    Wyświetla ilość sprzadanych towarów dla poszczególnych okresów.
+
+    :param periods: okresy w postaci listy tupli dat od do
+    :param wh: magazyn
+    :param kwargs: kryteria przy wybieraniu produktow (patrz get_products())
+    """
+    x = [f'{d1.isoformat()}\n{d2.isoformat()}' for d1, d2 in periods]
+    y = [analysis.get_sales(d1, d2, wh, **kwargs) for d1, d2 in periods]
+
+    bars = plt.bar(x, y)
+
+    # plot numbers
+    for rect in bars:
+        height = rect.get_height()
+        plt.text(rect.get_x() + rect.get_width() / 2.0, height, '%d' % int(height), ha='center', va='bottom')
+
+    plt.title('Sales in different periods')
+    plt.ylabel('Sales')
+    plt.show()
+
+
+def plot_resupply_periods(periods: List[Tuple[date, date]], wh: Warehouse, **kwargs):
+    """
+    Wyświetla ilość zamówionych przedmiotów dla poszczególnych okresów.
+
+    :param periods: okresy w postaci listy tupli dat od do
+    :param wh: magazyn
+    :param kwargs: kryteria przy wybieraniu produktow (patrz get_products())
+    """
+    x = [f'{d1.isoformat()}\n{d2.isoformat()}' for d1, d2 in periods]
+    y = [analysis.get_resupply(d1, d2, wh, **kwargs) for d1, d2 in periods]
+
+    bars = plt.bar(x, y)
+
+    # plot numbers
+    for rect in bars:
+        height = rect.get_height()
+        plt.text(rect.get_x() + rect.get_width() / 2.0, height, '%d' % int(height), ha='center', va='bottom')
+
+    plt.title('Resupply in different periods')
+    plt.ylabel('Resupply')
+    plt.show()
+
+
+def plot_balance_periods(periods: List[Tuple[date, date]], wh: Warehouse, **kwargs):
+    """
+    Wyświetla balans dla poszczególnych okresów.
+
+    :param periods: okresy w postaci listy tupli dat od do
+    :param wh: magazyn
+    :param kwargs: kryteria przy wybieraniu produktow (patrz get_products())
+    """
+    x = [f'{d1.isoformat()}\n{d2.isoformat()}' for d1, d2 in periods]
+    y = [analysis.get_balance(d1, d2, wh, **kwargs).amount for d1, d2 in periods]
+
+    bars = plt.bar(x, y)
+
+    # plot numbers
+    for rect in bars:
+        height = rect.get_height()
+        plt.text(rect.get_x() + rect.get_width() / 2.0, height, '%d' % int(height), ha='center', va='bottom')
+
+    plt.title('Balance in different periods')
+    plt.ylabel('Balance [PLN]')
+    plt.show()
+
+
+def plot_products_balance_periods(periods: List[Tuple[date, date]], wh: Warehouse, **kwargs):
+    """
+    Wyświetla dochód dla poszczególnych okresów.
+
+    :param periods: okresy w postaci listy tupli dat od do
+    :param wh: magazyn
+    :param kwargs: kryteria przy wybieraniu produktow (patrz get_products())
+    """
+    x = [f'{d1.isoformat()}\n{d2.isoformat()}' for d1, d2 in periods]
+    y = [analysis.get_products_balance(d1, d2, wh, **kwargs) for d1, d2 in periods]
+
+    bars = plt.bar(x, y)
+
+    # plot numbers
+    for rect in bars:
+        height = rect.get_height()
+        plt.text(rect.get_x() + rect.get_width() / 2.0, height, '%d' % int(height), ha='center', va='bottom')
+
+    plt.title('Products balance in different periods')
+    plt.ylabel('Products balance')
     plt.show()

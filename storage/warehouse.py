@@ -1,5 +1,5 @@
 import csv
-from typing import NamedTuple, List, Optional, Dict, Tuple
+from typing import NamedTuple, List, Optional, Dict, Tuple, Set
 from enum import Enum
 from moneyed import Money, PLN
 from datetime import date
@@ -9,6 +9,12 @@ class Category(NamedTuple):
     id: int
     name: str
     parent: Optional['Category']
+
+    def parents(self) -> Set['Category']:
+        """ Zwraca zbiór kategorii nadrzednych oraz samej siebie. """
+        if self.parent is not None:
+            return self.parent.parents().union([self])
+        return {self}
 
 
 class Size(Enum):
@@ -33,7 +39,11 @@ class Product(NamedTuple):
     sex: Sex
     color: str
     categories: Tuple[Category, ...]
-    delivery_time: float    
+    delivery_time: float
+
+    @property
+    def all_categories(self) -> Set[Category]:
+        return set().union(*[cat.parents() for cat in self.categories])
 
 
 class OperationType(Enum):
@@ -59,9 +69,9 @@ class Warehouse:
     
     def __init__(self):
         """ Creates empty warehouse """
-        self.categories: Dict[str, Category] = {}
+        self.categories: Dict[int, Category] = {}
         self.products: Dict[str, Product] = {}
-        self.operations: Dict[str, Operation] = {}
+        self.operations: Dict[int, Operation] = {}
         
     def load_categories(self, path: str):
         """ Loads catories from given CSV file """
