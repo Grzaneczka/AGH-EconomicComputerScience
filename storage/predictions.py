@@ -388,9 +388,9 @@ def prediction_plot(wh: Warehouse, product_name, only_quantities: bool, monthly:
 
 
 # w = Warehouse()
-# w.load("C:/Users/Jan/Documents/Studia/Rok3/ie/Git/data/categories_1.csv",
-#       "C:/Users/Jan/Documents/Studia/Rok3/ie/Git/data/products_1.csv",
-#       "C:/Users/Jan/Documents/Studia/Rok3/ie/Git/data/operations_1.csv")
+# w.load("../data/categories.csv",
+#       "../data/products.csv",
+#       "../data/operations.csv")
 # test = only_sales_for_product(w, "BHaP01WGry")
 # test = sales_sum(w, "BHaP01WGry", True, True)
 # test = sales_sum(w, None, False, False)
