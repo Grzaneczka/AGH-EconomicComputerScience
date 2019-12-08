@@ -45,6 +45,9 @@ class Product(NamedTuple):
     def all_categories(self) -> Set[Category]:
         return set().union(*[cat.parents() for cat in self.categories])
 
+    def __repr__(self):
+        return f'Product({self.id})'
+
 
 class OperationType(Enum):
     RESUPPLY = 1

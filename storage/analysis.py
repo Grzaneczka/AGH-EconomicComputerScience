@@ -1,6 +1,7 @@
+import csv
 from collections import defaultdict
 from datetime import date
-from typing import List, Tuple
+from typing import List, Tuple, Dict
 
 from moneyed import Money, PLN
 
@@ -221,3 +222,29 @@ def get_best_selling_sizes(date_from: date, date_to: date, wh: Warehouse) -> Lis
 
     data = [(count, size) for size, count in data.items()]
     return sorted(data, reverse=True)
+
+
+def compare_with_stocktaking(path: str, wh: Warehouse) -> Dict[Product, int]:
+    """
+    Zwraca porównanie aktualnego stanu magazynu ze stanem z inwentaryzacji.
+    Inwentaryzacja w formie pliku CSV, gdzie pierwsza kolumna to id produktu a druga to zliczona liość.
+
+    :param path: scierzka do pliku CSV
+    :param wh: magazyn
+    :return: słownik id-produktu: rożnica między stanem teoretycznym a rzeczywistym
+    """
+    stacktaking = defaultdict(int)
+
+    # wczytywanie inwentaryzacji
+    with open(path, 'r') as f:
+        csv_reader = csv.reader(f, delimiter=';')
+        # skip header
+        next(csv_reader)
+
+        for row in csv_reader:
+            stacktaking[row[0]] = int(row[1])
+
+    return {
+        prod: count - stacktaking[prod.id]
+        for prod, count in get_statuses(wh).items()
+    }
