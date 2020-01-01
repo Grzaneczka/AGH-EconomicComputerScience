@@ -224,14 +224,12 @@ def get_best_selling_sizes(date_from: date, date_to: date, wh: Warehouse) -> Lis
     return sorted(data, reverse=True)
 
 
-def compare_with_stocktaking(path: str, wh: Warehouse) -> Dict[Product, int]:
+def load_stocktaking(path: str) -> Dict[str, int]:
     """
-    Zwraca porównanie aktualnego stanu magazynu ze stanem z inwentaryzacji.
-    Inwentaryzacja w formie pliku CSV, gdzie pierwsza kolumna to id produktu a druga to zliczona liość.
+    Wczytuje plik z inwentaryzacji.
 
     :param path: scierzka do pliku CSV
-    :param wh: magazyn
-    :return: słownik id-produktu: rożnica między stanem teoretycznym a rzeczywistym
+    :return: słownik id-produktu: ilość
     """
     stacktaking = defaultdict(int)
 
@@ -243,6 +241,20 @@ def compare_with_stocktaking(path: str, wh: Warehouse) -> Dict[Product, int]:
 
         for row in csv_reader:
             stacktaking[row[0]] = int(row[1])
+
+    return stacktaking
+
+
+def compare_with_stocktaking(path: str, wh: Warehouse) -> Dict[Product, int]:
+    """
+    Zwraca porównanie aktualnego stanu magazynu ze stanem z inwentaryzacji.
+    Inwentaryzacja w formie pliku CSV, gdzie pierwsza kolumna to id produktu a druga to zliczona liość.
+
+    :param path: scierzka do pliku CSV
+    :param wh: magazyn
+    :return: słownik produktu: rożnica między stanem teoretycznym a rzeczywistym
+    """
+    stacktaking = load_stocktaking(path)
 
     return {
         prod: count - stacktaking[prod.id]
