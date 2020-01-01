@@ -40,8 +40,11 @@ def plot_stock_by_color(wh: Warehouse, time: date = None, **kwargs):
     sexes = sorted({p.sex for p in stock.keys()}, key=attrgetter('value'))
     colors = sorted({p.color for p in stock.keys()})
 
-    # create plot
-    fig, axes = plt.subplots(nrows=len(colors), ncols=len(sexes), figsize=(12, 8), sharex='col', sharey='all', squeeze=False)
+    # get active figure
+    fig = plt.gcf()
+
+    # create subplots
+    axes = fig.subplots(nrows=len(colors), ncols=len(sexes), sharex='col', sharey='all', squeeze=False)
 
     # set cols titles
     for ax, sex in zip(axes[0], sexes):
@@ -77,7 +80,6 @@ def plot_stock_by_color(wh: Warehouse, time: date = None, **kwargs):
             ax.set_yticks([])
 
     fig.tight_layout()
-    plt.show()
 
 
 def plot_stock_by_size(wh: Warehouse, time: date = None, **kwargs):
@@ -92,8 +94,11 @@ def plot_stock_by_size(wh: Warehouse, time: date = None, **kwargs):
     sexes = sorted({p.sex for p in stock.keys()}, key=attrgetter('value'))
     sizes = sorted({p.size for p in stock.keys()}, key=attrgetter('value'))
 
-    # create plot
-    fig, axes = plt.subplots(nrows=len(sizes), ncols=len(sexes), figsize=(12, 8), sharex='col', sharey='all', squeeze=False)
+    # get active figure
+    fig = plt.gcf()
+
+    # create subplots
+    axes = fig.subplots(nrows=len(sizes), ncols=len(sexes), sharex='col', sharey='all', squeeze=False)
 
     # set cols titles
     for ax, sex in zip(axes[0], sexes):
@@ -130,7 +135,6 @@ def plot_stock_by_size(wh: Warehouse, time: date = None, **kwargs):
                 ax.text(rect.get_x() + rect.get_width() / 2.0, height, '%d' % int(height), ha='center', va='bottom')
 
     fig.tight_layout()
-    plt.show()
 
 
 def plot_yearly_balance(year_from: int, year_to: int, wh: Warehouse):
@@ -147,7 +151,6 @@ def plot_yearly_balance(year_from: int, year_to: int, wh: Warehouse):
     plt.title('Yearly incomes and costs')
     plt.xticks(years)
     plt.legend()
-    plt.show()
 
 
 def plot_yearly_products_balance(year_from: int, year_to: int, wh: Warehouse):
@@ -164,7 +167,6 @@ def plot_yearly_products_balance(year_from: int, year_to: int, wh: Warehouse):
     plt.title('Yearly products resupplies and sales')
     plt.xticks(years)
     plt.legend()
-    plt.show()
 
 
 def plot_income_periods(periods: List[Tuple[date, date]], wh: Warehouse, **kwargs):
@@ -187,7 +189,6 @@ def plot_income_periods(periods: List[Tuple[date, date]], wh: Warehouse, **kwarg
 
     plt.title('Income in different periods')
     plt.ylabel('Income [PLN]')
-    plt.show()
 
 
 def plot_costs_periods(periods: List[Tuple[date, date]], wh: Warehouse, **kwargs):
@@ -210,7 +211,6 @@ def plot_costs_periods(periods: List[Tuple[date, date]], wh: Warehouse, **kwargs
 
     plt.title('Costs in different periods')
     plt.ylabel('Costs [PLN]')
-    plt.show()
 
 
 def plot_sales_periods(periods: List[Tuple[date, date]], wh: Warehouse, **kwargs):
@@ -233,7 +233,6 @@ def plot_sales_periods(periods: List[Tuple[date, date]], wh: Warehouse, **kwargs
 
     plt.title('Sales in different periods')
     plt.ylabel('Sales')
-    plt.show()
 
 
 def plot_resupply_periods(periods: List[Tuple[date, date]], wh: Warehouse, **kwargs):
@@ -256,7 +255,6 @@ def plot_resupply_periods(periods: List[Tuple[date, date]], wh: Warehouse, **kwa
 
     plt.title('Resupply in different periods')
     plt.ylabel('Resupply')
-    plt.show()
 
 
 def plot_balance_periods(periods: List[Tuple[date, date]], wh: Warehouse, **kwargs):
@@ -279,7 +277,6 @@ def plot_balance_periods(periods: List[Tuple[date, date]], wh: Warehouse, **kwar
 
     plt.title('Balance in different periods')
     plt.ylabel('Balance [PLN]')
-    plt.show()
 
 
 def plot_products_balance_periods(periods: List[Tuple[date, date]], wh: Warehouse, **kwargs):
@@ -302,4 +299,3 @@ def plot_products_balance_periods(periods: List[Tuple[date, date]], wh: Warehous
 
     plt.title('Products balance in different periods')
     plt.ylabel('Products balance')
-    plt.show()
