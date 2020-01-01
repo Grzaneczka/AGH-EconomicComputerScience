@@ -1,0 +1,674 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>main_window</class>
+ <widget class="QMainWindow" name="main_window">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>946</width>
+    <height>779</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Analiza</string>
+  </property>
+  <widget class="QWidget" name="central_widget">
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <item>
+     <widget class="QToolBox" name="toolbox">
+      <property name="maximumSize">
+       <size>
+        <width>300</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="currentIndex">
+       <number>4</number>
+      </property>
+      <widget class="QWidget" name="comparision_toolbox">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>300</width>
+         <height>602</height>
+        </rect>
+       </property>
+       <attribute name="label">
+        <string>Porównanie okresów</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_5">
+        <item alignment="Qt::AlignTop">
+         <widget class="QGroupBox" name="comparision_filters_group">
+          <property name="title">
+           <string>Filtry</string>
+          </property>
+          <layout class="QFormLayout" name="formLayout_4">
+           <item row="0" column="0">
+            <widget class="QLabel" name="comparision_filters_prefixes_label">
+             <property name="text">
+              <string>Przedrostki ID</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QLineEdit" name="comparision_filters_prefixes_text">
+             <property name="placeholderText">
+              <string>prefix1, prefix2, ...</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="comparision_filters_names_label">
+             <property name="text">
+              <string>Nazwy</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLabel" name="comparision_filters_categories_label">
+             <property name="text">
+              <string>Kategorie</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="0">
+            <widget class="QLabel" name="comparision_filters_colors_label">
+             <property name="text">
+              <string>Kolory</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="0">
+            <widget class="QLabel" name="comparision_filters_sizes_label">
+             <property name="text">
+              <string>Rozmiary</string>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="0">
+            <widget class="QLabel" name="comparision_filters_sexes_label">
+             <property name="text">
+              <string>Płcie</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QLineEdit" name="comparision_filters_names_text">
+             <property name="placeholderText">
+              <string>nazwa1, nazwa2, ...</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <widget class="QLineEdit" name="comparision_filters_categories_text">
+             <property name="placeholderText">
+              <string>kategoria1, kategoria2, ...</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="1">
+            <widget class="QLineEdit" name="comparision_filters_colors_text">
+             <property name="placeholderText">
+              <string>kolor1, kolor2, ...</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="1">
+            <widget class="QLineEdit" name="comparision_filters_sizes_text">
+             <property name="placeholderText">
+              <string>XS, S, M, L, XL, ONE_SIZE</string>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="1">
+            <widget class="QLineEdit" name="comparision_filters_sexes_text">
+             <property name="placeholderText">
+              <string>man, woman, unisex</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item alignment="Qt::AlignTop">
+         <widget class="QGroupBox" name="comparision_periods_group">
+          <property name="title">
+           <string>Okresy</string>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_4">
+           <item>
+            <widget class="QPlainTextEdit" name="comparision_periods_text">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>70</height>
+              </size>
+             </property>
+             <property name="plainText">
+              <string>2014-01-01 2015-01-01
+2015-01-01 2016-01-01
+2016-01-01 2017-01-01</string>
+             </property>
+             <property name="placeholderText">
+              <string notr="true">YYYY-MM-DD YYYY-MM-DD</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="comparision_income_button">
+          <property name="text">
+           <string>Przychody</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="comparision_costs_button">
+          <property name="text">
+           <string>Koszty</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="comparision_income_balance_button">
+          <property name="text">
+           <string>Bilans dochodów</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="comparision_sales_button">
+          <property name="text">
+           <string>Sprzedaż</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="comparision_resupply_button">
+          <property name="text">
+           <string>Dostawy</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="comparision_operations_balance_button">
+          <property name="text">
+           <string>Bilans operacji</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="verticalSpacer_5">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="balance_toolbox">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>300</width>
+         <height>602</height>
+        </rect>
+       </property>
+       <attribute name="label">
+        <string>Roczny bilans</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout">
+        <item row="1" column="0">
+         <widget class="QPushButton" name="balance_incomes_button">
+          <property name="text">
+           <string>Bilans dochodów</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QPushButton" name="balance_operations_button">
+          <property name="text">
+           <string>Bilans operacji</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="0" alignment="Qt::AlignTop">
+         <widget class="QGroupBox" name="balance_year_group">
+          <property name="layoutDirection">
+           <enum>Qt::LeftToRight</enum>
+          </property>
+          <property name="title">
+           <string>Zakres lat</string>
+          </property>
+          <layout class="QFormLayout" name="formLayout_3">
+           <item row="0" column="0">
+            <widget class="QLabel" name="balance_year_from_label">
+             <property name="text">
+              <string>Rok od</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QSpinBox" name="balance_year_from_spinbox">
+             <property name="minimum">
+              <number>2012</number>
+             </property>
+             <property name="maximum">
+              <number>2020</number>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="balance_year_to_label">
+             <property name="text">
+              <string>Rok do</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QSpinBox" name="balance_year_to_spinbox">
+             <property name="minimum">
+              <number>2012</number>
+             </property>
+             <property name="maximum">
+              <number>2020</number>
+             </property>
+             <property name="value">
+              <number>2020</number>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="3" column="0">
+         <spacer name="verticalSpacer_4">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="stock_toolbox">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>300</width>
+         <height>602</height>
+        </rect>
+       </property>
+       <attribute name="label">
+        <string>Stan magazynu</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <item alignment="Qt::AlignTop">
+         <widget class="QGroupBox" name="stock_filters_group">
+          <property name="title">
+           <string>Filtry</string>
+          </property>
+          <layout class="QFormLayout" name="formLayout_5">
+           <item row="0" column="0">
+            <widget class="QLabel" name="stock_filters_prefixes_label">
+             <property name="text">
+              <string>Przedrostki ID</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QLineEdit" name="stock_filters_prefixes_text">
+             <property name="placeholderText">
+              <string>prefix1, prefix2, ...</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="stock_filters_names_label">
+             <property name="text">
+              <string>Nazwy</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QLineEdit" name="stock_filters_names_text">
+             <property name="placeholderText">
+              <string>nazwa1, nazwa2, ...</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLabel" name="stock_filters_categories_label">
+             <property name="text">
+              <string>Kategorie</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <widget class="QLineEdit" name="stock_filters_categories_text">
+             <property name="placeholderText">
+              <string>kategoria1, kategoria2, ...</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="0">
+            <widget class="QLabel" name="stock_filters_colors_label">
+             <property name="text">
+              <string>Kolory</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="1">
+            <widget class="QLineEdit" name="stock_filters_colors_text">
+             <property name="placeholderText">
+              <string>kolor1, kolor2, ...</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="0">
+            <widget class="QLabel" name="stock_filters_sizes_label">
+             <property name="text">
+              <string>Rozmiary</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="1">
+            <widget class="QLineEdit" name="stock_filters_sizes_text">
+             <property name="placeholderText">
+              <string>XS, S, M, L, XL, ONE_SIZE</string>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="0">
+            <widget class="QLabel" name="stock_filters_sexes_label">
+             <property name="text">
+              <string>Płcie</string>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="1">
+            <widget class="QLineEdit" name="stock_filters_sexes_text">
+             <property name="placeholderText">
+              <string>man, woman, unisex</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item alignment="Qt::AlignTop">
+         <widget class="QGroupBox" name="stock_date_group">
+          <property name="title">
+           <string>Data</string>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_6">
+           <item>
+            <widget class="QDateEdit" name="stock_date">
+             <property name="minimumDate">
+              <date>
+               <year>2012</year>
+               <month>1</month>
+               <day>1</day>
+              </date>
+             </property>
+             <property name="displayFormat">
+              <string>yyyy-MM-dd</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item alignment="Qt::AlignTop">
+         <widget class="QPushButton" name="stock_color_button">
+          <property name="text">
+           <string>Według koloru</string>
+          </property>
+         </widget>
+        </item>
+        <item alignment="Qt::AlignTop">
+         <widget class="QPushButton" name="stock_size_button">
+          <property name="text">
+           <string>Według rozmiaru</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="verticalSpacer_3">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="analysis_toolbox">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>300</width>
+         <height>602</height>
+        </rect>
+       </property>
+       <attribute name="label">
+        <string>Analiza</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout">
+        <item alignment="Qt::AlignTop">
+         <widget class="QGroupBox" name="analysis_dates_group">
+          <property name="title">
+           <string>Zakres dat</string>
+          </property>
+          <layout class="QFormLayout" name="formLayout">
+           <item row="0" column="0">
+            <widget class="QLabel" name="analysis_date_from_label">
+             <property name="text">
+              <string>Od</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QDateEdit" name="analysis_date_from">
+             <property name="minimumDate">
+              <date>
+               <year>2012</year>
+               <month>1</month>
+               <day>1</day>
+              </date>
+             </property>
+             <property name="displayFormat">
+              <string>yyyy-MM-dd</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="analysis_date_to_label">
+             <property name="text">
+              <string>Do</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QDateEdit" name="analysis_date_to">
+             <property name="minimumDate">
+              <date>
+               <year>2012</year>
+               <month>1</month>
+               <day>1</day>
+              </date>
+             </property>
+             <property name="displayFormat">
+              <string>yyyy-MM-dd</string>
+             </property>
+             <property name="date">
+              <date>
+               <year>2013</year>
+               <month>1</month>
+               <day>1</day>
+              </date>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item alignment="Qt::AlignTop">
+         <widget class="QPushButton" name="analysis_colors_button">
+          <property name="text">
+           <string>Najlepsze kolory</string>
+          </property>
+         </widget>
+        </item>
+        <item alignment="Qt::AlignTop">
+         <widget class="QPushButton" name="analysis_sizes_button">
+          <property name="text">
+           <string>Najlepsze rozmiary</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="verticalSpacer_2">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="stocktaking_toolbox">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>300</width>
+         <height>602</height>
+        </rect>
+       </property>
+       <attribute name="label">
+        <string>Inwentaryzacja</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_3">
+        <item>
+         <widget class="QGroupBox" name="stocktaking_file_group">
+          <property name="title">
+           <string>Plik z danymi</string>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_2">
+           <item>
+            <widget class="QLineEdit" name="stocktaking_file_text"/>
+           </item>
+           <item>
+            <widget class="QToolButton" name="stocktaking_file_button">
+             <property name="text">
+              <string>...</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="stocktaking_button">
+          <property name="text">
+           <string>Porównanie ze stanem</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="verticalSpacer">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+    <item>
+     <widget class="Line" name="line">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QStackedWidget" name="main_widget">
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="plot_page">
+       <layout class="QGridLayout" name="gridLayout_2"/>
+      </widget>
+      <widget class="QWidget" name="table_page">
+       <layout class="QGridLayout" name="gridLayout_3">
+        <item row="0" column="0">
+         <widget class="QTableWidget" name="table"/>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionWczytaj_dane">
+   <property name="text">
+    <string>Wczytaj dane</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
