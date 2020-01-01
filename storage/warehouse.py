@@ -1,5 +1,5 @@
 import csv
-from typing import NamedTuple, List, Optional, Dict, Tuple, Set
+from typing import NamedTuple, Optional, Dict, Tuple, Set
 from enum import Enum
 from moneyed import Money, PLN
 from datetime import date
@@ -128,3 +128,9 @@ class Warehouse:
         self.load_categories(path_categories)
         self.load_products(path_products)
         self.load_operations(path_operations)
+
+    def get_category_by_name(self, name: str) -> Optional[Category]:
+        """ Returns category base on given name """
+        for cat in self.categories.values():
+            if cat.name.lower() == name.lower():
+                return cat
