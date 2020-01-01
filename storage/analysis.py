@@ -221,7 +221,7 @@ def get_best_selling_sizes(date_from: date, date_to: date, wh: Warehouse) -> Lis
             data[op.product.size] += op.quantity
 
     data = [(count, size) for size, count in data.items()]
-    return sorted(data, reverse=True)
+    return sorted(data, reverse=True, key=lambda x: x[0])
 
 
 def load_stocktaking(path: str) -> Dict[str, int]:
