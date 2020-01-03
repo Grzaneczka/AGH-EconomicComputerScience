@@ -345,10 +345,6 @@ def plot_forecast_income(analyse_months: int, season: int, forecast_months: int,
     if analyse_months <= 2 * season:
         return plot_error('Błędna kombinacja parametrów')
 
-    # setup figure
-    fig = plt.gcf()
-    ax = fig.subplots()
-
     # get dates
     d = date(date.today().year, date.today().month, 15)
     dates = [d + relativedelta(months=i) for i in range(-analyse_months, forecast_months)]
@@ -356,11 +352,21 @@ def plot_forecast_income(analyse_months: int, season: int, forecast_months: int,
     # get data
     data = [float(d.amount) for d in analysis.get_monthly_incomes(analyse_months, wh, **kwargs)]
 
+    # get forecast
+    try:
+        forecast = analysis.forecast_values(data, forecast_months, season)
+    except:
+        return plot_error('Brak danych')
+
+    # setup figure
+    fig = plt.gcf()
+    ax = fig.subplots()
+
     # plot data
     ax.plot(dates[:analyse_months], data, label='historia')
 
     # plot forecast
-    ax.plot(dates[analyse_months-1:], [data[-1]] + analysis.forecast_values(data, forecast_months, season), label='prognoza')
+    ax.plot(dates[analyse_months-1:], [data[-1]] + forecast, label='prognoza')
 
     # format the ticks
     ax.xaxis.set_major_locator(mdates.YearLocator())
@@ -388,10 +394,6 @@ def plot_forecast_sales(analyse_months: int, season: int, forecast_months: int, 
     if analyse_months <= 2 * season:
         return plot_error('Błędna kombinacja parametrów')
 
-    # setup figure
-    fig = plt.gcf()
-    ax = fig.subplots()
-
     # get dates
     d = date(date.today().year, date.today().month, 15)
     dates = [d + relativedelta(months=i) for i in range(-analyse_months, forecast_months)]
@@ -399,11 +401,20 @@ def plot_forecast_sales(analyse_months: int, season: int, forecast_months: int, 
     # get data
     data = [float(d) for d in analysis.get_monthly_sales(analyse_months, wh, **kwargs)]
 
+    # plot forecast
+    try:
+        forecast = np.rint(analysis.forecast_values(data, forecast_months, season))
+    except:
+        return plot_error('Brak danych')
+
+    # setup figure
+    fig = plt.gcf()
+    ax = fig.subplots()
+
     # plot data
     ax.plot(dates[:analyse_months], data, label='historia')
 
-    # plot forecast
-    forecast = np.rint(analysis.forecast_values(data, forecast_months, season))
+    # plor forecast
     ax.plot(dates[analyse_months-1:], [data[-1]] + forecast.tolist(), label='prognoza')
 
     # format the ticks
