@@ -53,6 +53,7 @@ class MainWindow(QMainWindow):
         self.ui.stocktaking_file_button.clicked.connect(self._on_stocktaking_file_button)
         self.ui.forecast_income_button.clicked.connect(self._on_forecast_income_button)
         self.ui.forecast_sales_button.clicked.connect(self._on_forecast_sales_button)
+        self.ui.deliveries_button.clicked.connect(self._on_deliveries_button)
 
         # print status
         self.ui.statusbar.showMessage(f"Wczytano {len(self.warehouse.products)} produktów, {len(self.warehouse.categories)} kategori, {len(self.warehouse.operations)} operacji")
@@ -74,11 +75,11 @@ class MainWindow(QMainWindow):
         self.plot.draw()
 
     @contextmanager
-    def display_table(self, columns: int, headers: List[str]):
+    def display_table(self, rows: int, headers: List[str]):
 
         # setup table
         self.table.clear()
-        self.table.setRowCount(columns)
+        self.table.setRowCount(rows)
         self.table.setColumnCount(len(headers))
         self.table.setHorizontalHeaderLabels(headers)
 
@@ -290,6 +291,21 @@ class MainWindow(QMainWindow):
 
         self.ui.statusbar.showMessage("Wyświetlono prognozę sprzedaży")
 
+    def _on_deliveries_button(self):
+        options = self._get_deliveries_options()
+        if not options:
+            return
+
+        statuses = analysis.get_statuses(self.warehouse, **options)
+
+        with self.display_table(len(statuses), ['id', 'w magazynie', 'miesiące']):
+            for i, (prod, count) in enumerate(statuses.items()):
+                self.table.setItem(i, 0, QTableWidgetItem(prod.id))
+                self.table.setItem(i, 1, QTableWidgetItem(str(count)))
+                self.table.setItem(i, 2, QTableWidgetItem(str(analysis.get_months_for_supplies(prod.id, count, self.warehouse))))
+
+        self.ui.statusbar.showMessage("Wyświetlono tabelę dostępności")
+
     # ========================================================
     #  OPTIONS PARSING
     # ========================================================
@@ -413,6 +429,21 @@ class MainWindow(QMainWindow):
             options['analyse_months'] = self.ui.forecast_settings_from_spinbox.value()
             options['forecast_months'] = self.ui.forecast_settings_to_spinbox.value()
             options['season'] = int(self.ui.forecast_season_combo.currentText())
+            return options
+        except AssertionError as e:
+            self.ui.statusbar.showMessage('[BŁĄD] '+str(e))
+
+    def _get_deliveries_options(self) -> Optional[Dict]:
+        """ Returns parsed options from delivieres panel. """
+        try:
+            options = self._parse_filters(
+                self.ui.deliveries_filters_prefixes_text.text() or None,
+                self.ui.deliveries_filters_names_text.text() or None,
+                self.ui.deliveries_filters_categories_text.text() or None,
+                self.ui.deliveries_filters_colors_text.text() or None,
+                self.ui.deliveries_filters_sizes_text.text() or None,
+                self.ui.deliveries_filters_sexes_text.text() or None
+            )
             return options
         except AssertionError as e:
             self.ui.statusbar.showMessage('[BŁĄD] '+str(e))

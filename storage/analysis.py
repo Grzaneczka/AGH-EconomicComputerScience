@@ -3,6 +3,7 @@ from collections import defaultdict
 from datetime import date
 from typing import List, Tuple, Dict
 
+import numpy as np
 from dateutil.relativedelta import relativedelta
 from moneyed import Money, PLN
 
@@ -308,3 +309,15 @@ def forecast_values(data: List[float], predictions: int, season: int) -> List[fl
 
     # make prediction
     return model_fit.predict(len(data), len(data) + predictions - 1).tolist()
+
+
+def get_months_for_supplies(prod_id: str, count: int, wh: Warehouse):
+    data = get_monthly_sales(36, wh, id_prefixes=[prod_id])
+    try:
+        forecast = np.cumsum(np.rint(forecast_values(data, 6, 12)))
+    except:
+        return 'brak danych'
+
+    if forecast[-1] <= count:
+        return '>6'
+    return np.argmax(np.cumsum(forecast) > count)

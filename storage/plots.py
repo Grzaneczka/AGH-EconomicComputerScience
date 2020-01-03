@@ -3,6 +3,7 @@ from datetime import date
 from operator import attrgetter
 from typing import List, Tuple
 
+import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 from dateutil.relativedelta import relativedelta
@@ -402,7 +403,8 @@ def plot_forecast_sales(analyse_months: int, season: int, forecast_months: int, 
     ax.plot(dates[:analyse_months], data, label='historia')
 
     # plot forecast
-    ax.plot(dates[analyse_months-1:], [data[-1]] + analysis.forecast_values(data, forecast_months, season), label='prognoza')
+    forecast = np.rint(analysis.forecast_values(data, forecast_months, season))
+    ax.plot(dates[analyse_months-1:], [data[-1]] + forecast.tolist(), label='prognoza')
 
     # format the ticks
     ax.xaxis.set_major_locator(mdates.YearLocator())
