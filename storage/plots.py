@@ -37,6 +37,10 @@ def plot_stock_by_color(wh: Warehouse, time: date = None, **kwargs):
     :param kwargs: kryteria przy wybieraniu produktow (patrz get_products())
     """
     stock = get_statuses(wh, time=time, **kwargs)
+
+    if not stock:
+        return plot_error('Brak produktów spełniających kryteria')
+
     sexes = sorted({p.sex for p in stock.keys()}, key=attrgetter('value'))
     colors = sorted({p.color for p in stock.keys()})
 
@@ -91,6 +95,10 @@ def plot_stock_by_size(wh: Warehouse, time: date = None, **kwargs):
     :param kwargs: kryteria przy wybieraniu produktow (patrz get_products())
     """
     stock = get_statuses(wh, time=time, **kwargs)
+
+    if not stock:
+        return plot_error('Brak produktów spełniających kryteria')
+
     sexes = sorted({p.sex for p in stock.keys()}, key=attrgetter('value'))
     sizes = sorted({p.size for p in stock.keys()}, key=attrgetter('value'))
 
@@ -180,6 +188,9 @@ def plot_income_periods(periods: List[Tuple[date, date]], wh: Warehouse, **kwarg
     x = [f'{d1.isoformat()}\n{d2.isoformat()}' for d1, d2 in periods]
     y = [analysis.get_income(d1, d2, wh, **kwargs).amount for d1, d2 in periods]
 
+    if all(v == 0 for v in y):
+        return plot_error('Brak danych spełniających kryteria')
+
     bars = plt.bar(x, y)
 
     # plot numbers
@@ -201,6 +212,9 @@ def plot_costs_periods(periods: List[Tuple[date, date]], wh: Warehouse, **kwargs
     """
     x = [f'{d1.isoformat()}\n{d2.isoformat()}' for d1, d2 in periods]
     y = [analysis.get_costs(d1, d2, wh, **kwargs).amount for d1, d2 in periods]
+
+    if all(v == 0 for v in y):
+        return plot_error('Brak danych spełniających kryteria')
 
     bars = plt.bar(x, y)
 
@@ -224,6 +238,9 @@ def plot_sales_periods(periods: List[Tuple[date, date]], wh: Warehouse, **kwargs
     x = [f'{d1.isoformat()}\n{d2.isoformat()}' for d1, d2 in periods]
     y = [analysis.get_sales(d1, d2, wh, **kwargs) for d1, d2 in periods]
 
+    if all(v == 0 for v in y):
+        return plot_error('Brak danych spełniających kryteria')
+
     bars = plt.bar(x, y)
 
     # plot numbers
@@ -245,6 +262,9 @@ def plot_resupply_periods(periods: List[Tuple[date, date]], wh: Warehouse, **kwa
     """
     x = [f'{d1.isoformat()}\n{d2.isoformat()}' for d1, d2 in periods]
     y = [analysis.get_resupply(d1, d2, wh, **kwargs) for d1, d2 in periods]
+
+    if all(v == 0 for v in y):
+        return plot_error('Brak danych spełniających kryteria')
 
     bars = plt.bar(x, y)
 
@@ -268,6 +288,9 @@ def plot_balance_periods(periods: List[Tuple[date, date]], wh: Warehouse, **kwar
     x = [f'{d1.isoformat()}\n{d2.isoformat()}' for d1, d2 in periods]
     y = [analysis.get_balance(d1, d2, wh, **kwargs).amount for d1, d2 in periods]
 
+    if all(v == 0 for v in y):
+        return plot_error('Brak danych spełniających kryteria')
+
     bars = plt.bar(x, y)
 
     # plot numbers
@@ -290,6 +313,9 @@ def plot_products_balance_periods(periods: List[Tuple[date, date]], wh: Warehous
     x = [f'{d1.isoformat()}\n{d2.isoformat()}' for d1, d2 in periods]
     y = [analysis.get_products_balance(d1, d2, wh, **kwargs) for d1, d2 in periods]
 
+    if all(v == 0 for v in y):
+        return plot_error('Brak danych spełniających kryteria')
+
     bars = plt.bar(x, y)
 
     # plot numbers
@@ -299,3 +325,18 @@ def plot_products_balance_periods(periods: List[Tuple[date, date]], wh: Warehous
 
     plt.title('Products balance in different periods')
     plt.ylabel('Products balance')
+
+
+# ========================================================
+#  UTILITY
+# ========================================================
+def plot_error(msg: str):
+    """ Wyświetla pusty wykres z tekstem na środku. """
+    plt.text(
+        0.5, 0.5,
+        msg,
+        horizontalalignment='center',
+        verticalalignment='center',
+        fontsize=12,
+    )
+    plt.axis('off')
