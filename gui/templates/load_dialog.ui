@@ -7,30 +7,13 @@
     <x>0</x>
     <y>0</y>
     <width>429</width>
-    <height>136</height>
+    <height>159</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Wczytywanie danych</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="2" column="1">
-    <widget class="QLineEdit" name="load_operations_text"/>
-   </item>
-   <item row="2" column="0">
-    <widget class="QLabel" name="load_operations_label">
-     <property name="text">
-      <string>Operacje</string>
-     </property>
-    </widget>
-   </item>
-   <item row="2" column="2">
-    <widget class="QToolButton" name="load_operations_button">
-     <property name="text">
-      <string>...</string>
-     </property>
-    </widget>
-   </item>
    <item row="0" column="1">
     <widget class="QLineEdit" name="load_categories_text"/>
    </item>
@@ -48,24 +31,24 @@
      </property>
     </widget>
    </item>
-   <item row="0" column="2">
-    <widget class="QToolButton" name="load_categories_button">
+   <item row="2" column="0">
+    <widget class="QLabel" name="load_operations_label">
      <property name="text">
-      <string>...</string>
+      <string>Operacje</string>
      </property>
     </widget>
    </item>
    <item row="1" column="1">
     <widget class="QLineEdit" name="load_products_text"/>
    </item>
-   <item row="1" column="0">
-    <widget class="QLabel" name="load_products_label">
+   <item row="2" column="2">
+    <widget class="QToolButton" name="load_operations_button">
      <property name="text">
-      <string>Produkty</string>
+      <string>...</string>
      </property>
     </widget>
    </item>
-   <item row="3" column="0" colspan="3">
+   <item row="4" column="0" colspan="3">
     <widget class="QDialogButtonBox" name="load_button">
      <property name="layoutDirection">
       <enum>Qt::LeftToRight</enum>
@@ -78,6 +61,30 @@
      </property>
      <property name="centerButtons">
       <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="1">
+    <widget class="QLineEdit" name="load_operations_text"/>
+   </item>
+   <item row="0" column="2">
+    <widget class="QToolButton" name="load_categories_button">
+     <property name="text">
+      <string>...</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0">
+    <widget class="QLabel" name="load_products_label">
+     <property name="text">
+      <string>Produkty</string>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="0" colspan="3">
+    <widget class="QLabel" name="load_error">
+     <property name="text">
+      <string/>
      </property>
     </widget>
    </item>

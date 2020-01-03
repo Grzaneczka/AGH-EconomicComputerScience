@@ -237,7 +237,12 @@ class MainWindow(QMainWindow):
 
     def _on_stocktaking_button(self):
         headers = ['id', 'nazwa', 'płeć', 'kolor', 'rozmiar', 'w systemie', 'w magazynie', 'różnica']
-        stocktaking = analysis.load_stocktaking(self.ui.stocktaking_file_text.text())
+
+        try:
+            stocktaking = analysis.load_stocktaking(self.ui.stocktaking_file_text.text())
+        except FileNotFoundError as e:
+            return self.ui.statusbar.showMessage(f"[BŁĄD] Plik nie istnieje: '{e.filename}'")
+
         stock = analysis.get_statuses(self.warehouse)
 
         with self.display_table(len(stock), headers):

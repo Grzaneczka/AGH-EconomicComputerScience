@@ -12,6 +12,10 @@ if __name__ == '__main__':
     load_dialog = LoadDialog()
     load_dialog.exec_()
 
+    # stop if no warehouse was created stop app
+    if load_dialog.warehouse is None:
+        sys.exit()
+
     # create main window
     window = MainWindow(load_dialog.warehouse)
     window.show()
