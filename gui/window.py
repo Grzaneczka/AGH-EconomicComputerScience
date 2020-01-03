@@ -150,22 +150,31 @@ class MainWindow(QMainWindow):
         self.ui.statusbar.showMessage("Wyświetlono porównanie bilansów operacji")
 
     def _on_balance_incomes_button(self):
+
+        date_from = self.ui.balance_year_from_spinbox.value()
+        date_to = self.ui.balance_year_to_spinbox.value()
+
+        if date_to <= date_from:
+            self.ui.statusbar.showMessage("[BŁĄD] Data od musi być mniejsza niż data do")
+            return
+
         with self.display_plot():
-            plots.plot_yearly_balance(
-                self.ui.balance_year_from_spinbox.value(),
-                self.ui.balance_year_to_spinbox.value(),
-                self.warehouse
-            )
+            plots.plot_yearly_balance(date_from, date_to, self.warehouse)
 
         self.ui.statusbar.showMessage("Wyświetlono roczny bilans dochodów")
 
     def _on_balance_operations_button(self):
+
+        date_from = self.ui.balance_year_from_spinbox.value()
+        date_to = self.ui.balance_year_to_spinbox.value()
+
+        if date_to <= date_from:
+            self.ui.statusbar.showMessage("[BŁĄD] Data od musi być mniejsza niż data do")
+            return
+
         with self.display_plot():
-            plots.plot_yearly_products_balance(
-                self.ui.balance_year_from_spinbox.value(),
-                self.ui.balance_year_to_spinbox.value(),
-                self.warehouse
-            )
+            plots.plot_yearly_products_balance(date_from, date_to, self.warehouse)
+
         self.ui.statusbar.showMessage("Wyświetlono roczny bilans operacji")
 
     def _on_stock_color_button(self):
@@ -190,11 +199,15 @@ class MainWindow(QMainWindow):
 
     def _on_analysis_colors_button(self):
         headers = ['kolor', 'sprzedane sztuki']
-        sold_colors = analysis.get_best_selling_colors(
-            self.ui.analysis_date_from.date(),
-            self.ui.analysis_date_to.date(),
-            self.warehouse
-        )
+
+        date_from = self.ui.analysis_date_from.date()
+        date_to = self.ui.analysis_date_to.date()
+
+        if date_to <= date_from:
+            self.ui.statusbar.showMessage("[BŁĄD] Data od musi być mniejsza niż data do")
+            return
+
+        sold_colors = analysis.get_best_selling_colors(date_from, date_to, self.warehouse)
 
         with self.display_table(len(sold_colors), headers):
             for i, (count, color) in enumerate(sold_colors):
@@ -205,11 +218,15 @@ class MainWindow(QMainWindow):
 
     def _on_analysis_sizes_button(self):
         headers = ['rozmiar', 'sprzedane sztuki']
-        sold_sizes = analysis.get_best_selling_sizes(
-            self.ui.analysis_date_from.date(),
-            self.ui.analysis_date_to.date(),
-            self.warehouse
-        )
+
+        date_from = self.ui.analysis_date_from.date()
+        date_to = self.ui.analysis_date_to.date()
+
+        if date_to <= date_from:
+            self.ui.statusbar.showMessage("[BŁĄD] Data od musi być mniejsza niż data do")
+            return
+
+        sold_sizes = analysis.get_best_selling_sizes(date_from, date_to, self.warehouse)
 
         with self.display_table(len(sold_sizes), headers):
             for i, (count, size) in enumerate(sold_sizes):
