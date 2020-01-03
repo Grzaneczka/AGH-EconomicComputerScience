@@ -3,6 +3,7 @@ from datetime import date
 from typing import Optional, Dict, List, Tuple
 
 import matplotlib.pyplot as plt
+from PyQt5.QtGui import QColor
 from PyQt5.QtWidgets import QMainWindow, QFileDialog, QTableWidgetItem
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 
@@ -232,6 +233,11 @@ class MainWindow(QMainWindow):
                 self.table.setItem(i, 5, QTableWidgetItem(str(count)))
                 self.table.setItem(i, 6, QTableWidgetItem(str(stocktaking[prod.id])))
                 self.table.setItem(i, 7, QTableWidgetItem(str(count - stocktaking[prod.id])))
+
+                # color row
+                if count != stocktaking[prod.id]:
+                    for col in range(8):
+                        self.table.item(i, col).setBackground(QColor(255, 158, 158))
 
         self.ui.statusbar.showMessage("Wyświetlono porównanie z inwentaryzacją")
 
