@@ -4,6 +4,8 @@ from operator import attrgetter
 from typing import List, Tuple
 
 import matplotlib.pyplot as plt
+import matplotlib.dates as mdates
+from dateutil.relativedelta import relativedelta
 
 from storage import analysis
 from storage.analysis import get_statuses
@@ -325,6 +327,92 @@ def plot_products_balance_periods(periods: List[Tuple[date, date]], wh: Warehous
 
     plt.title('Products balance in different periods')
     plt.ylabel('Products balance')
+
+
+def plot_forecast_income(analyse_months: int, season: int, forecast_months: int, wh: Warehouse, **kwargs):
+    """
+    Wyświetla prognozę na podstawie danych.
+
+    :param analyse_months: ilość miesięcy w tył branych pod uwagę
+    :param season: długość okresu w miesiącach
+    :param forecast_months: ilość prognozowanych miesięcy
+    :param wh: magazyn
+    :param kwargs: kryteria przy wybieraniu produktow (patrz get_products())
+    """
+
+    # check parameters
+    if analyse_months <= 2 * season:
+        return plot_error('Błędna kombinacja parametrów')
+
+    # setup figure
+    fig = plt.gcf()
+    ax = fig.subplots()
+
+    # get dates
+    d = date(date.today().year, date.today().month, 15)
+    dates = [d + relativedelta(months=i) for i in range(-analyse_months, forecast_months)]
+
+    # get data
+    data = [float(d.amount) for d in analysis.get_monthly_incomes(analyse_months, wh, **kwargs)]
+
+    # plot data
+    ax.plot(dates[:analyse_months], data, label='historia')
+
+    # plot forecast
+    ax.plot(dates[analyse_months-1:], [data[-1]] + analysis.forecast_values(data, forecast_months, season), label='prognoza')
+
+    # format the ticks
+    ax.xaxis.set_major_locator(mdates.YearLocator())
+    ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y'))
+    ax.xaxis.set_minor_locator(mdates.MonthLocator())
+    ax.grid(True, axis='x', which='major', linewidth=2, alpha=0.8)
+    ax.grid(True, axis='x', which='minor', linewidth=1, alpha=0.2)
+    ax.set_ylim(bottom=0)
+
+    ax.legend()
+
+
+def plot_forecast_sales(analyse_months: int, season: int, forecast_months: int, wh: Warehouse, **kwargs):
+    """
+    Wyświetla prognozę na podstawie danych.
+
+    :param analyse_months: ilość miesięcy w tył branych pod uwagę
+    :param season: długość okresu w miesiącach
+    :param forecast_months: ilość prognozowanych miesięcy
+    :param wh: magazyn
+    :param kwargs: kryteria przy wybieraniu produktow (patrz get_products())
+    """
+
+    # check parameters
+    if analyse_months <= 2 * season:
+        return plot_error('Błędna kombinacja parametrów')
+
+    # setup figure
+    fig = plt.gcf()
+    ax = fig.subplots()
+
+    # get dates
+    d = date(date.today().year, date.today().month, 15)
+    dates = [d + relativedelta(months=i) for i in range(-analyse_months, forecast_months)]
+
+    # get data
+    data = [float(d) for d in analysis.get_monthly_sales(analyse_months, wh, **kwargs)]
+
+    # plot data
+    ax.plot(dates[:analyse_months], data, label='historia')
+
+    # plot forecast
+    ax.plot(dates[analyse_months-1:], [data[-1]] + analysis.forecast_values(data, forecast_months, season), label='prognoza')
+
+    # format the ticks
+    ax.xaxis.set_major_locator(mdates.YearLocator())
+    ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y'))
+    ax.xaxis.set_minor_locator(mdates.MonthLocator())
+    ax.grid(True, axis='x', which='major', linewidth=2, alpha=0.8)
+    ax.grid(True, axis='x', which='minor', linewidth=1, alpha=0.2)
+    ax.set_ylim(bottom=0)
+
+    ax.legend()
 
 
 # ========================================================

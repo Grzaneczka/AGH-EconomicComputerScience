@@ -51,6 +51,8 @@ class MainWindow(QMainWindow):
         self.ui.analysis_sizes_button.clicked.connect(self._on_analysis_sizes_button)
         self.ui.stocktaking_button.clicked.connect(self._on_stocktaking_button)
         self.ui.stocktaking_file_button.clicked.connect(self._on_stocktaking_file_button)
+        self.ui.forecast_income_button.clicked.connect(self._on_forecast_income_button)
+        self.ui.forecast_sales_button.clicked.connect(self._on_forecast_sales_button)
 
         # print status
         self.ui.statusbar.showMessage(f"Wczytano {len(self.warehouse.products)} produktów, {len(self.warehouse.categories)} kategori, {len(self.warehouse.operations)} operacji")
@@ -268,6 +270,26 @@ class MainWindow(QMainWindow):
             QFileDialog.getOpenFileName(self, 'Inwentaryzacja', filter='*.csv')[0]
         )
 
+    def _on_forecast_income_button(self):
+        options = self._get_forecast_options()
+        if not options:
+            return
+
+        with self.display_plot():
+            plots.plot_forecast_income(wh=self.warehouse, **options)
+
+        self.ui.statusbar.showMessage("Wyświetlono prognozę przychodów")
+
+    def _on_forecast_sales_button(self):
+        options = self._get_forecast_options()
+        if not options:
+            return
+
+        with self.display_plot():
+            plots.plot_forecast_sales(wh=self.warehouse, **options)
+
+        self.ui.statusbar.showMessage("Wyświetlono prognozę sprzedaży")
+
     # ========================================================
     #  OPTIONS PARSING
     # ========================================================
@@ -373,6 +395,24 @@ class MainWindow(QMainWindow):
                 self.ui.stock_filters_sexes_text.text() or None
             )
             options['time'] = self.ui.stock_date.date()
+            return options
+        except AssertionError as e:
+            self.ui.statusbar.showMessage('[BŁĄD] '+str(e))
+
+    def _get_forecast_options(self) -> Optional[Dict]:
+        """ Returns parsed options from forecast panel. """
+        try:
+            options = self._parse_filters(
+                self.ui.forecast_filters_prefixes_text.text() or None,
+                self.ui.forecast_filters_names_text.text() or None,
+                self.ui.forecast_filters_categories_text.text() or None,
+                self.ui.forecast_filters_colors_text.text() or None,
+                self.ui.forecast_filters_sizes_text.text() or None,
+                self.ui.forecast_filters_sexes_text.text() or None
+            )
+            options['analyse_months'] = self.ui.forecast_settings_from_spinbox.value()
+            options['forecast_months'] = self.ui.forecast_settings_to_spinbox.value()
+            options['season'] = int(self.ui.forecast_season_combo.currentText())
             return options
         except AssertionError as e:
             self.ui.statusbar.showMessage('[BŁĄD] '+str(e))

@@ -3,6 +3,7 @@ from collections import defaultdict
 from datetime import date
 from typing import List, Tuple, Dict
 
+from dateutil.relativedelta import relativedelta
 from moneyed import Money, PLN
 
 from storage.warehouse import Warehouse, Product, Operation, OperationType, Category, Size, Sex
@@ -260,3 +261,50 @@ def compare_with_stocktaking(path: str, wh: Warehouse) -> Dict[Product, int]:
         prod: count - stacktaking[prod.id]
         for prod, count in get_statuses(wh).items()
     }
+
+
+def get_monthly_incomes(months: int, wh: Warehouse, **kwargs) -> List[Money]:
+    """
+    Zwraca przychody na przestrzeni ostatnich miesięcy.
+
+    :param months: ilość miesięcy wstecz
+    :param wh: magazyn
+    :return: dochody w ostatnich miesiącach
+    """
+    d = date(date.today().year, date.today().month, 1)
+    return [
+        get_income(d + relativedelta(months=i), d + relativedelta(months=i+1), wh, **kwargs)
+        for i in range(-months, 0)
+    ]
+
+
+def get_monthly_sales(months: int, wh: Warehouse, **kwargs) -> List[int]:
+    """
+    Zwraca sprzedaże na przestrzeni ostatnich miesięcy.
+
+    :param months: ilość miesięcy wstecz
+    :param wh: magazyn
+    :return: sprzedaże w ostatnich miesiącach
+    """
+    d = date(date.today().year, date.today().month, 1)
+    return [
+        get_sales(d + relativedelta(months=i), d + relativedelta(months=i+1), wh, **kwargs)
+        for i in range(-months, 0)
+    ]
+
+
+def forecast_values(data: List[float], predictions: int, season: int) -> List[float]:
+    from statsmodels.tsa.statespace.sarimax import SARIMAX
+
+    # fit model
+    model = SARIMAX(
+        data,
+        order=(2, 1, 1),
+        seasonal_order=(1, 0, 0, season),
+        enforce_invertibility=False,
+        enforce_stationarity=False
+    )
+    model_fit = model.fit(disp=False)
+
+    # make prediction
+    return model_fit.predict(len(data), len(data) + predictions - 1).tolist()
