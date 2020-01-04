@@ -156,10 +156,12 @@ def plot_yearly_balance(year_from: int, year_to: int, wh: Warehouse):
     incomes = [analysis.get_income(date(y, 1, 1), date(y + 1, 1, 1), wh).amount for y in years]
     balance = [analysis.get_balance(date(y, 1, 1), date(y + 1, 1, 1), wh).amount for y in years]
 
-    plt.plot(years, costs, c='r', label='Costs')
-    plt.plot(years, incomes, c='g', label='Incomes')
-    plt.plot(years, balance, c='b', label='Balances')
-    plt.title('Yearly incomes and costs')
+    plt.plot(years, costs, c='r', label='Koszty')
+    plt.plot(years, incomes, c='g', label='Przychody')
+    plt.plot(years, balance, c='b', label='Bilans (dochód)')
+    plt.title('Roczne przychody oraz koszty')
+    plt.ylabel('Wielkość [PLN]')
+    plt.xlabel("Rok")
     plt.xticks(years)
     plt.legend()
 
@@ -172,10 +174,12 @@ def plot_yearly_products_balance(year_from: int, year_to: int, wh: Warehouse):
     resupply = [analysis.get_resupply(date(y, 1, 1), date(y+1, 1, 1), wh) for y in years]
     balance = [analysis.get_products_balance(date(y, 1, 1), date(y+1, 1, 1), wh) for y in years]
 
-    plt.plot(years, sales, c='r', label='Sales')
-    plt.plot(years, resupply, c='g', label='Resupplies')
-    plt.plot(years, balance, c='b', label='Balances')
-    plt.title('Yearly products resupplies and sales')
+    plt.plot(years, sales, c='r', label='Sprzedaż')
+    plt.plot(years, resupply, c='g', label='Dostawy')
+    plt.plot(years, balance, c='b', label='Balans ilości produktów')
+    plt.title('Roczne sprzedaże oraz dostawy produktów ')
+    plt.ylabel('Ilość [sztuka]')
+    plt.xlabel("Rok")
     plt.xticks(years)
     plt.legend()
 
@@ -201,8 +205,8 @@ def plot_income_periods(periods: List[Tuple[date, date]], wh: Warehouse, **kwarg
         height = rect.get_height()
         plt.text(rect.get_x() + rect.get_width() / 2.0, height, '%d' % int(height), ha='center', va='bottom')
 
-    plt.title('Income in different periods')
-    plt.ylabel('Income [PLN]')
+    plt.title('Przychody w różnych okresach ')
+    plt.ylabel('Przychody [PLN]')
 
 
 def plot_costs_periods(periods: List[Tuple[date, date]], wh: Warehouse, **kwargs):
@@ -226,8 +230,8 @@ def plot_costs_periods(periods: List[Tuple[date, date]], wh: Warehouse, **kwargs
         height = rect.get_height()
         plt.text(rect.get_x() + rect.get_width() / 2.0, height, '%d' % int(height), ha='center', va='bottom')
 
-    plt.title('Costs in different periods')
-    plt.ylabel('Costs [PLN]')
+    plt.title('Koszty w różnych okresach')
+    plt.ylabel('Koszty [PLN]')
 
 
 def plot_sales_periods(periods: List[Tuple[date, date]], wh: Warehouse, **kwargs):
@@ -251,8 +255,8 @@ def plot_sales_periods(periods: List[Tuple[date, date]], wh: Warehouse, **kwargs
         height = rect.get_height()
         plt.text(rect.get_x() + rect.get_width() / 2.0, height, '%d' % int(height), ha='center', va='bottom')
 
-    plt.title('Sales in different periods')
-    plt.ylabel('Sales')
+    plt.title('Sprzedaż w różnych okresach')
+    plt.ylabel('Sprzedaż')
 
 
 def plot_resupply_periods(periods: List[Tuple[date, date]], wh: Warehouse, **kwargs):
@@ -276,8 +280,8 @@ def plot_resupply_periods(periods: List[Tuple[date, date]], wh: Warehouse, **kwa
         height = rect.get_height()
         plt.text(rect.get_x() + rect.get_width() / 2.0, height, '%d' % int(height), ha='center', va='bottom')
 
-    plt.title('Resupply in different periods')
-    plt.ylabel('Resupply')
+    plt.title('Dostawy w różnych okresach')
+    plt.ylabel('Dostawy')
 
 
 def plot_balance_periods(periods: List[Tuple[date, date]], wh: Warehouse, **kwargs):
@@ -301,8 +305,8 @@ def plot_balance_periods(periods: List[Tuple[date, date]], wh: Warehouse, **kwar
         height = rect.get_height()
         plt.text(rect.get_x() + rect.get_width() / 2.0, height, '%d' % int(height), ha='center', va='bottom')
 
-    plt.title('Balance in different periods')
-    plt.ylabel('Balance [PLN]')
+    plt.title('Balans (dochód) w różnych okresach')
+    plt.ylabel('Balans [PLN]')
 
 
 def plot_products_balance_periods(periods: List[Tuple[date, date]], wh: Warehouse, **kwargs):
@@ -375,6 +379,7 @@ def plot_forecast_income(analyse_months: int, season: int, forecast_months: int,
     ax.grid(True, axis='x', which='major', linewidth=2, alpha=0.8)
     ax.grid(True, axis='x', which='minor', linewidth=1, alpha=0.2)
     ax.set_ylim(bottom=0)
+    ax.set_ylabel('Wielkość [PLN]')
 
     ax.legend()
 
@@ -424,7 +429,7 @@ def plot_forecast_sales(analyse_months: int, season: int, forecast_months: int, 
     ax.grid(True, axis='x', which='major', linewidth=2, alpha=0.8)
     ax.grid(True, axis='x', which='minor', linewidth=1, alpha=0.2)
     ax.set_ylim(bottom=0)
-
+    ax.set_ylabel('Ilość [sztuka]')
     ax.legend()
 
 

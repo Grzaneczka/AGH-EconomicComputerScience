@@ -23,10 +23,11 @@ class LoadDialog(QDialog):
         self.ui.load_products_button.clicked.connect(self._on_products_button)
         self.ui.load_button.clicked.connect(self._on_submit)
 
-        # FIXME REMOVE: only for development
-        self.ui.load_operations_text.setText('/home/grzaneczka/PycharmProjects/AGH-EconomicComputerScience/data/operations.csv')
-        self.ui.load_categories_text.setText('/home/grzaneczka/PycharmProjects/AGH-EconomicComputerScience/data/categories.csv')
-        self.ui.load_products_text.setText('/home/grzaneczka/PycharmProjects/AGH-EconomicComputerScience/data/products.csv')
+        # # FIXME REMOVE: only for development
+        # self.ui.load_operations_text.setText('/home/grzaneczka/PycharmProjects/AGH-EconomicComputerScience/data/operations.csv')
+        # self.ui.load_categories_text.setText('/home/grzaneczka/PycharmProjects/AGH-EconomicComputerScience/data/categories.csv')
+        # self.ui.load_products_text.setText('/home/grzaneczka/PycharmProjects/AGH-EconomicComputerScience/data/products.csv')
+        #
 
     def _on_submit(self):
         # TODO: handle exceptions
