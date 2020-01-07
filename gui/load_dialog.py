@@ -41,8 +41,9 @@ class LoadDialog(QDialog):
         except FileNotFoundError as e:
             self.warehouse = None
             return self.ui.load_error.setText(f'Błędna ścierzka:\n{e.filename}')
-        except:
+        except Exception as e:
             self.warehouse = None
+            print(e)
             return self.ui.load_error.setText('Błędny format danych')
 
         self.close()
