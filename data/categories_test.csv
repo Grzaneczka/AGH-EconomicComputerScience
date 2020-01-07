@@ -1,0 +1,8 @@
+Id;Name;Parent
+1;Odzie¿;NULL
+3;Nadruki;NULL
+4;Bluza;1
+9;Filmy i Seriale;3
+10;Muzyka;3
+13;Harry Potter;9
+15;Iron Maiden;10
