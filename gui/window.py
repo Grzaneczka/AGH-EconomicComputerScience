@@ -298,11 +298,18 @@ class MainWindow(QMainWindow):
 
         statuses = analysis.get_statuses(self.warehouse, **options)
 
-        with self.display_table(len(statuses), ['id', 'w magazynie', 'miesiące']):
+        with self.display_table(len(statuses), ['id', 'w magazynie', 'miesiące', 'czas dostawy', 'informacje']):
             for i, (prod, count) in enumerate(statuses.items()):
+                months = analysis.get_months_for_supplies(prod.id, count, self.warehouse)
+
                 self.table.setItem(i, 0, QTableWidgetItem(prod.id))
                 self.table.setItem(i, 1, QTableWidgetItem(str(count)))
-                self.table.setItem(i, 2, QTableWidgetItem(str(analysis.get_months_for_supplies(prod.id, count, self.warehouse))))
+                self.table.setItem(i, 2, QTableWidgetItem(str(months)))
+                self.table.setItem(i, 3, QTableWidgetItem(str(prod.delivery_time)))
+
+                if not isinstance(months, str) and months < prod.delivery_time / 31:
+                    self.table.setItem(i, 4, QTableWidgetItem('Wymagane zamówienie'))
+                    self.table.item(i, 4).setBackground(QColor(255, 158, 158))
 
         self.ui.statusbar.showMessage("Wyświetlono tabelę dostępności")
 
