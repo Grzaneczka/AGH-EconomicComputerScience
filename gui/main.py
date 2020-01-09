@@ -5,6 +5,10 @@ from PyQt5.QtWidgets import QApplication
 from gui.load_dialog import LoadDialog
 from gui.window import MainWindow
 
+# backport fromisoformat to older versions of python
+from backports.datetime_fromisoformat import MonkeyPatch
+MonkeyPatch.patch_fromisoformat()
+
 if __name__ == '__main__':
     app = QApplication(sys.argv)
 
